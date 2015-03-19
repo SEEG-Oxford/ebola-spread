@@ -4,13 +4,13 @@ title: Quantifying the relative risk of Ebola case importation at a national lev
 use_math: true
 ---
 
-# Quantifying the relative risk of Ebola case importation at a national level – version 2
+# Quantifying the relative risk of Ebola case importation at a national level - version 2
 
 ## Methodological summary, University of Oxford 20/02/2015
 
 ## Summary
 
-The aim of this analysis is to produce a global, national-level metric of the relative risk of Ebola cases being imported by travellers, for each country listed in the INFORM database. In brief, this risk metric ‘Importation Risk’ is calculated as a weighted average of three separate importation metrics: ‘Migration Index’, ‘Gravity Index’ and ‘Adjacency Index’, each representing a different aspect of human movement. Each of these three indices weights the importation risk by an estimate of the prevalence of the disease in each of the three core countries (Guinea, Liberia and Sierra Leone). Each of these three indices is re-scaled to a metric of relative importation risk between 0 and 10, in line with other INFORM metrics. The weighting of these three indices in the overall risk metric enables the inclusion of expert opinion about the most likely route of importation for EVD cases.
+The aim of this analysis is to produce a global, national-level metric of the relative risk of Ebola cases being imported by travellers, for each country listed in the INFORM database. In brief, this risk metric 'Importation Risk' is calculated as a weighted average of three separate importation metrics: 'Migration Index', 'Gravity Index' and 'Adjacency Index', each representing a different aspect of human movement. Each of these three indices weights the importation risk by an estimate of the prevalence of the disease in each of the three core countries (Guinea, Liberia and Sierra Leone). Each of these three indices is re-scaled to a metric of relative importation risk between 0 and 10, in line with other INFORM metrics. The weighting of these three indices in the overall risk metric enables the inclusion of expert opinion about the most likely route of importation for EVD cases.
 
 ## Indices
 
@@ -36,7 +36,7 @@ For each of the three core Ebola-affected countries, we estimate the current pre
 
 ## Weighting of indices
 
-In order to incorporate expert knowledge about the relative importance of different modes of movement – as well as on the reliability of each of the different indices – weightings may be provided for calculating the overall Importation Risk metric.
+In order to incorporate expert knowledge about the relative importance of different modes of movement - as well as on the reliability of each of the different indices - weightings may be provided for calculating the overall Importation Risk metric.
 
 ## Key assumptions
 
