@@ -5,21 +5,19 @@ use_math: true
 ---
 ## Methodological summary, University of Oxford 20/02/2015
 
-## Summary
-
-The aim of this analysis is to produce a global, national-level metric of the relative risk of Ebola cases being imported by travellers, for each country listed in the INFORM database. In brief, this risk metric 'Importation Risk' is calculated as a weighted average of three separate importation metrics: 'Migration Index', 'Gravity Index' and 'Adjacency Index', each representing a different aspect of human movement. Each of these three indices weights the importation risk by an estimate of the prevalence of the disease in each of the three core countries (Guinea, Liberia and Sierra Leone). Each of these three indices is re-scaled to a metric of relative importation risk between 0 and 10, in line with other INFORM metrics. The weighting of these three indices in the overall risk metric enables the inclusion of expert opinion about the most likely route of importation for EVD cases.
-
 ## Indices
+
+Several indices representing a set of different movement aspects are used for this analysis and described below and then used to infer relative risk of importation.
 
 ### Migration Index
 
-The aim of this index is to represent travel from core affected countries to other countries related to the global distribution of the diaspora of these countries (for example to visit relatives). Since this is likely to be correlated with long-term international migration, we use an existing migration dataset to develop this metric. 
+The aim of this index is to represent travel from core affected countries to other countries related to the long term migration patterns from these countries. We assume that travel between countries increases if there is a history of migration between these two countries (for example to visit relatives). For this purpose we use an existing migration dataset to develop this metric. 
 We estimate the relative number of travellers moving from each of the core Ebola-affected countries to each other country as the estimated total migration between the two countries (in either direction) between 2005 and 2010 using estimates provided by Abel & Sander (2014). I.e. the sum of the estimated number of people who were living in country A in 2005 and were then living in country B in 2010 and the number of people living in country B in 2005 and then country A in 2010. In order to remove estimates of 0 travellers (which would lead to 0 estimates of relative risk, which could incorrectly be interpreted as 0 risk), we added 1 to all of these numbers to represent low but non-zero international travel. Country names were manually matched between those presented by Abel & Sander and those used in the INFORM database.
 
 ### Gravity Index
 
-The aim of this metric is to represent regional and global business travel. As there is scant publicly available data on the numbers of people moving between countries, we instead apply a simple parametric model, the gravity model, to infer relative movement based on population sizes and distances.
-The model takes the form: $\frac{PQ}{D\gamma}$ where $P$ and $Q$ are the populations of the origin and destination countries and $D$ is the distance between geographic centroids of these two countries. $\gamma$ is parameter controlling how the number of visitors decays with distance. Note that we omit the additional parameters present in other implementations of the gravity model as the later rescaling of the index removes their effect. In the absence of a reliable, publicly available global dataset on international business travel, the choice of the parameter $\gamma$ becomes arbitrary. We set $\gamma$=1.5 to produce movement rankings that correspond to a prior belief that travel to populous countries in the West Africa region (e.g. Ghana and Nigeria) will be more common than travel to the very populous countries in Asia (e.g. China and India).
+The aim of this metric is to represent regional and global travel. As there is scant publicly available data on the numbers of people moving between countries, we instead apply a simple parametric model, the gravity model, to infer relative movement based on population sizes and distances.
+The model takes the form: $\frac{PQ}{D\gamma}$ where $P$ and $Q$ are the populations of the origin and destination countries and $D$ is the distance between geographic centroids of these two countries. $\gamma$ is a parameter controlling how the number of visitors decays with distance. Note that we omit the additional parameters present in other implementations of the gravity model as the later rescaling of the index removes their effect. In the absence of a reliable, publicly available global dataset on international short term travel, the choice of the parameter $\gamma$ becomes arbitrary. We set $\gamma$=1.5 to produce movement rankings that correspond to a prior belief that travel to populous countries in the West Africa region (e.g. Ghana and Nigeria) will be more common than travel to the very populous countries in Asia (e.g. China and India).
 
 ### Adjacency Index
 
