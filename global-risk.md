@@ -7,7 +7,20 @@ title: Global Risk
 
 The aim of this analysis is to produce a global, national-level metric of the relative risk of Ebola cases being imported by travellers, for each country listed in the INFORM database. In brief, this risk metric 'Importation Risk' is calculated as a weighted average of three separate importation metrics: 'Migration Index', 'Gravity Index' and 'Adjacency Index', each representing a different aspect of human movement. Each of these three indices weights the importation risk by an estimate of the prevalence of the disease in each of the three core countries (Guinea, Liberia and Sierra Leone). Then the three indices are re-scaled independently to a metric of relative importation risk between 0 and 10, in line with other INFORM metrics. The weighting of these three indices in the overall risk metric enables the inclusion of expert opinion about the most likely route of importation for EVD cases.
 
-
 [Risk of Ebola case importation model methodology][Risk-doc]
 
 [Risk-doc]: http://seeg-oxford.github.io/ebola-spread/risk-doc
+
+### Latest data as of 20 March 2015
+
+<a href="images/global_INFORM_prediction_large.png"><img src="images/global_INFORM_prediction.png" /></a>
+Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the INFORM model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+
+<a href="images/global_Adjacency_prediction_large.png"><img src="images/global_Adjacency_prediction.png" /></a>
+Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Adjacency model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+
+<a href="images/global_Gravity_prediction_large.png"><img src="images/global_Gravity_prediction.png" /></a>
+Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+
+<a href="images/global_Migration_prediction_large.png"><img src="images/global_Migration_prediction.png" /></a>
+Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Migration model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
