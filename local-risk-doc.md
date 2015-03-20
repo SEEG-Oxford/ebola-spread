@@ -13,7 +13,7 @@ A detailed description of the human movement model at the regional scale is show
 
 The aim of this index is to represent travel from districts between the affected countries to other districts within the core countries. We assume that travel between districts is determined by factors such as population and distance. The radiation model with selection is defined as: 
 
-INSERT FORMULA HERE:
+$T_{ij} = \frac{\frac{(1 - \lambda^{P}}{P} - \frac{1 - \lambda^{Q}}{Q}}{\frac{1 - \lambda^{R}}{R}}$
 
 where .. represents.. and .. . Parameters .. 
 
