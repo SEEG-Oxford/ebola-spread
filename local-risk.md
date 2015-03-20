@@ -15,15 +15,3 @@ The aim of this analysis is to produce a regional, district level metric of the 
     <img src="images/regional_prediction.png" />
     <b>Legend:</b> Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. 
 </div>
-
-Hi !
-
-#container {
-    height:100px;
-    line-height:100px;
-}
-
-#container img {
-    vertical-align:middle;
-    max-height:100%;
-}
