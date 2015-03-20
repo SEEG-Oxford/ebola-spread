@@ -13,6 +13,14 @@ The aim of this analysis is to produce a regional, district level metric of the 
 
 ### Latest data as of 20 March 2015
 
-
 <a href="images/regional_prediction_radsel_france_large.png"><img src="images/regional_prediction_radsel_france.png" /></a>
-Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
+Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the radiation with selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
+
+<a href="images/regional_prediction_gravity_france_large.png"><img src="images/regional_prediction_gravity_france.png" /></a>
+Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
+
+<a href="images/regional_prediction_radiation_france_large.png"><img src="images/regional_prediction_radiation_france.png" /></a>
+Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the original radiation model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
+
+<a href="images/regional_prediction_uniform_france_large.png"><img src="images/regional_prediction_uniform_france.png" /></a>
+Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the uniform selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
