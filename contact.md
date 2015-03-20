@@ -2,8 +2,6 @@
 layout: default
 title: Contact
 ---
- 
-### Contact List
 
 ## Direct contacts
 
