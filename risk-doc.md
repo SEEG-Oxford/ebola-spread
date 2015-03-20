@@ -42,4 +42,4 @@ Note that due to a lack of data, this estimation necessarily makes a number of a
 
 ## Reference
 
-Abel GJ & Sander N (2014) Quantifying Global International Migration Flows. Science 343 (6178), 1520-1522 http://dx.doi.org/10.1126/science.1248676
+Abel GJ & Sander N (2014) Quantifying Global International Migration Flows. Science 343 (6178), 1520-1522 [http://dx.doi.org/10.1126/science.1248676](http://dx.doi.org/10.1126/science.1248676)
