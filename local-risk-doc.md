@@ -17,7 +17,7 @@ INSERT FORMULA HERE:
 
 where .. represents.. and .. . Parameters .. 
 
-(Simini et al. 2012, Simini et al. 2013). The radiation model with selection was fitted using a set of known between district (n = 329) movements from mobile phone users from France in 2007 (Tizzoni et al. 2014). The model was then used to build a movement matrix between all districts of the core countries. District level population data were extracted using WorldPop (www.worldpop.org). District level administrative boundaries were downloaded from GADM (www.gadm.org).   
+(Simini et al. 2012, Simini et al. 2013). The radiation model with selection was fitted using a set of known between district (n = 329) movements from mobile phone users from France in 2007 (Tizzoni et al. 2014). The model was then used to build a movement matrix between all districts of the core countries. District level population data were extracted using [WorldPop](http://www.worldpop.org/). District level administrative boundaries were downloaded from [GADM](http://www.gadm.org/).   
 
 
 ## Relative rate of importation
@@ -40,4 +40,4 @@ Simini, F., González, M.C., Maritan, A. & Barabási, A.-L. (2012). A universal 
 
 Tizzoni, M., Bajardi, P., Decuyper, A., Kon Kam King, G., Schneider, C.M., Blondel, V., et al. (2014). On the Use of Human Mobility Proxies for Modeling Epidemics. PLoS Comput. Biol., 10, e1003716.
 
-WorldPop project.. WorldPop. http://worldpop.org.uk/.
+WorldPop project. WorldPop. [http://worldpop.org.uk/](http://worldpop.org.uk/).
