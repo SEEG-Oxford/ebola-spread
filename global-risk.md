@@ -13,8 +13,8 @@ The aim of this analysis is to produce a global, national-level metric of the re
 
 ### Latest data as of 20 March 2015
 
-<a href="images/global_INFORM_prediction_large.png"><img src="images/global_INFORM_prediction.png" /></a>
-Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the INFORM model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+<a href="images/global_Overall_prediction_large.png"><img src="images/global_Overall_prediction.png" /></a>
+Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the overall model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
 
 <a href="images/global_Adjacency_prediction_large.png"><img src="images/global_Adjacency_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Adjacency model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
