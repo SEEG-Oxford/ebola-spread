@@ -13,7 +13,6 @@ The aim of this analysis is to produce a regional, district level metric of the 
 
 ### Latest data as of 20 March 2015
 
-<div id="container">
-    <img src="images/regional_prediction.png" />
-    Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. 
-</div>
+
+<a href="images/regional_prediction_radsel_france_large.png"><img src="images/regional_prediction_radsel_france.png" /></a>
+Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
