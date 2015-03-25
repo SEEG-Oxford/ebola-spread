@@ -23,7 +23,8 @@ The gravity law assumes that the number of people moving between locations is pr
 
 $$T_ij = \dfrac{m^\alpha_i n^\beta_j}{f(r_{ij})}$$
 
-where, $m_i$ represents the population at origin, $n_j$ the population at the destination and ${r_{ij}}$ the distance between them. $\alpha$ and $\beta$ are tuning parameters fitted to each subpopulation size, and $f(r_{ij})$ is a distance-dependent functional form (Zipf 1946, Balcan et al. 2009). 
+where, $m_i$ represents the population at origin, $n_j$ the population at the destination and $r_{ij}$
+ the distance between them. $\alpha$ and $\beta$ are tuning parameters fitted to each subpopulation size, and $f(r_{ij})$ is a distance-dependent functional form (Zipf 1946, Balcan et al. 2009). 
 
 ### Radiation model
 
