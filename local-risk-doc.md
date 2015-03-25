@@ -23,13 +23,13 @@ The gravity law assumes that the number of people moving between locations is pr
 
 $T_ij = \dfrac{m^\alpha_i n^\beta_j}{f(r_{ij})}$
 
-where,$m_i$ represents the population at origin, $n_j$ the population at the destination and $r_{ij}$ the distance between them. $\alpha$ and $\beta$ are tuning parameters fitted to each subpopulation size, and $f(r_{ij})$ is a distance-dependent functional form (Zipf 1946, Balcan et al. 2009). 
+where, $m_i$ represents the population at origin, $n_j$ the population at the destination and $r_{ij}$ the distance between them. $\alpha$ and $\beta$ are tuning parameters fitted to each subpopulation size, and $f(r_{ij})$ is a distance-dependent functional form (Zipf 1946, Balcan et al. 2009). 
 
 ### Radiation model
 
 The radiation model generally assumes the rational of job selection. It follows the general rule that the number of employment opportunities in each district is proportional to its resident population, assuming full employment (people in district = jobs in district). Moreover, the individuals in each district choose the closest job to their home. Analytically the radiation model is represented by: 
 
-$T_{ij} = \dfrac{}{PQ}{(P + R) (P + Q + R)}$
+$T_{ij} = \dfrac{PQ}{(P + R) (P + Q + R)}$
 
 where $P$ is the population at the origin and $Q$ at the destination, $R$ denotes the total population in a radius $\gamma$ around population centres $P_i$ and $Q_j$ (excluding the population at the origin and destination location) (Simini et al. 2012).
 
@@ -37,7 +37,7 @@ where $P$ is the population at the origin and $Q$ at the destination, $R$ denote
 
 The uniform selection model assumes that a job is selected uniformly at random proportionally to the population in each district with following Simini et al. (2013). 
 
-$T_ij = \dfrac{P}{Q - R}  
+$T_ij = \dfrac{P}{Q - R}$
 
 ## Relative rate of importation
 
