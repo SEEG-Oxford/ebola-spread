@@ -11,7 +11,7 @@ The aim of this analysis is to produce a regional, district level metric of the 
 
 [Risk-doc]: http://seeg-oxford.github.io/ebola-spread/local-risk-doc
 
-### Latest data as of 23 March 2015
+### Latest data as of 26 March 2015
 
 #### Note: The Bélier and Moronou regions of Côte d'Ivoire are currently being predicted incorrectly, hence the gray region in that area. This is being corrected.
 
