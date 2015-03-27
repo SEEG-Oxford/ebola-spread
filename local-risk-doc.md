@@ -35,7 +35,7 @@ where $P$ is the population at the origin and $Q$ at the destination, $R$ denote
 
 ### Uniform selection model
 
-The uniform selection model assumes that a job is selected uniformly at random proportionally to the population in each district with following Simini et al. (2013). 
+The uniform selection model assumes that a job is selected uniformly at random proportionally to the population in each district following Simini et al. (2013):
 
 $$T_ij = \dfrac{P}{Q - R}$$
 
@@ -43,6 +43,34 @@ $$T_ij = \dfrac{P}{Q - R}$$
 
 For the radiation model outputs we weight connectivity to each of the districts by an estimate of the prevalence of Ebola in each of those districts to produce a single value of the index for all other districts.
 For each of the 63 districts of the three core Ebola-affected countries, we estimate the current prevalence of Ebola cases by dividing the number of cases reported in each district over the last last 21 days by each district's population. By multiplying this district-specific prevalence by the relevant index of movement, we produce an estimate of the relative rate of importation from each of the affected districts in the core countries to each of the other districts. For each country we sum the estimated relative rate of importation from each district to calculate an estimate of the overall relative rate of importation into the unaffected districts. These numbers are then rescaled so that the district with the highest importation risk has a score of 10 for the given index and all other districts have a score between 0 and 10 representing the risk relative to the most at-risk districts.
+
+## Datasets used
+
+# Population surfaces and administrative boundaries
+We obtained high resolution population maps from WorldPop. Populations were then aggregated to the district level administrative units for all core and surrounding countries. We extracted spatial information such as polygons, centroids and distance matrices using administrative boundaries from GADM (www.gadm.org/download).
+
+# Human mobility
+Many metrics can be used to measure mobility between regions of interest. Traditionally this included data from national censuses or questionnaires. More recently several methods have been proposed to estimate mobility based on call detail records (CDRs) (Wesolowski et al. 2012). In this study we used three openly available CDR datasets from 2007 from France and Spain and 2006 from Portugal (Tizzoni et al. 2014). We moreover used gravity model parameters from CDR data from Senegal, Cote I’voire and Kenya to infer mobility between districts in the core and surrounding countries (Wesolowski et al. 2014). 
+
+The commuting patterns from mobile phone records for each country (France, Spain, Portugal) are extracted from a sample comprising 5,695,974, 1,034,430 and 1,058,197 anonymised users respectively. This data has already been successfully applied in previous works (Calabrese et al. 2011, Phithakkitnukoon et al. 2012a, Phithakkitnukoon et al. 2012b, Sobolevsky et al. 2013). 
+
+Gravity model parameter estimates were used from Wesolowski et al. (2014) derived from three independent datasets. A random sample of 500,000 anonymised mobile phone subscribers were provided by Orange Telecom from Cote d’Ivoire recorded between December 1, 2011 and April 28, 2012 (Lu et al. 2013). Another set of CDR data from Senegal was used recording movement from 150,000 subscribers between January 1, 2013 and December 31, 2013 (de Montjoye et al. 2014). Lastly gravity model parameters were taken fitted from a comprehensive CDR dataset from Kenya comprising 14,816,521 subscribers between June 2008 and June 2009 with an estimated 92% country wide market share (Wesolowksi et al. 2014). 
+
+# References
+
+Calabrese, F., Smoreda, Z., Blondel, V.D. & Ratti, C. (2011). Interplay between telecommunications and face-to-face interactions: A study using mobile phone data. PLoS One, 6, e20814.
+
+de Montjoye, Y.-A., Smoreda, Z., Trinquart, R., Ziemlicki, C. & Blondel, V.D. (n.d.). D4D-Senegal: The Second Mobile Phone Data for Development Challenge. arXiv: 1407.4885v2, 2014.
+
+Lu, X., Wetter, E., Bharti, N., Tatem, A.J. & Bengtsson, L. (2013). Approaching the limit of predictability in human mobility. Sci. Rep., 3, 2923.
+
+Phithakkitnukoon, S., Leong, T.W., Smoreda, Z. & Olivier, P. (2012)a. Weather Effects on Mobile Social Interactions: A Case Study of Mobile Phone Users in Lisbon, Portugal. PLoS One, 7, e45745.
+
+Phithakkitnukoon, S., Smoreda, Z. & Olivier, P. (2012)b. Socio-geography of human mobility: a study using longitudinal mobile phone data. PLoS One, 7, e39253.
+
+Sobolevsky, S., Szell, M., Campari, R., Couronné, T., Smoreda, Z. & Ratti, C. (2013). Delineating geographical regions with networks of human interactions in an extensive set of countries. PLoS One, 8, e81707.
+
+Wesolowski, A., Eagle, N., Tatem, A.J., Smith, D.L., Noor, A.M., Snow, R.W., et al. (2012). Quantifying the impact of human mobility on malaria. Science., 338, 267–70.
 
 
 ## Key assumptions
@@ -64,5 +92,3 @@ Tizzoni, M., Bajardi, P., Decuyper, A., Kon Kam King, G., Schneider, C.M., Blond
 WorldPop project. WorldPop. [http://worldpop.org.uk/](http://worldpop.org.uk/).
 
 Zipf, G.K. (1946). The P1 P2 / D hypothesis: on the intercity movement of persons. Am. Sociol. Rev., 11, 677–686. 
-
-
