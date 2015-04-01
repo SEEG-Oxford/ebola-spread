@@ -1,3 +1,4 @@
+
 ---
 layout: default
 title: Quantifying the relative risk of Ebola case importation at a national level
@@ -56,7 +57,16 @@ The commuting patterns from mobile phone records for each country (France, Spain
 
 Gravity model parameter estimates were used from Wesolowski et al. (2014) derived from three independent datasets. A random sample of 500,000 anonymised mobile phone subscribers were provided by Orange Telecom from Cote d’Ivoire recorded between December 1, 2011 and April 28, 2012 (Lu et al. 2013). Another set of CDR data from Senegal was used recording movement from 150,000 subscribers between January 1, 2013 and December 31, 2013 (de Montjoye et al. 2014). Lastly gravity model parameters were taken fitted from a comprehensive CDR dataset from Kenya comprising 14,816,521 subscribers between June 2008 and June 2009 with an estimated 92% country wide market share (Wesolowksi et al. 2014). 
 
+## Key assumptions
+
+Note that due to a lack of data, this estimation necessarily makes a number of assumptions, and does not represent the _expected_ number of importations over a given time frame. Key points include:
+
+* The data used to train the human movement model are taken from a comparable European country but do not represent the movement in an outbreak situation as they are not estimated on real-time data. This, however could be improved as new data become available. 
+
+
 # References
+
+Balcan, D., Colizza, V., Gonc, B. & Hu, H. (2009). Multiscale mobility networks and the spatial. Proc. Natl. Acad. Sci. U. S. A., 106, 21484–9.
 
 Calabrese, F., Smoreda, Z., Blondel, V.D. & Ratti, C. (2011). Interplay between telecommunications and face-to-face interactions: A study using mobile phone data. PLoS One, 6, e20814.
 
@@ -68,27 +78,17 @@ Phithakkitnukoon, S., Leong, T.W., Smoreda, Z. & Olivier, P. (2012)a. Weather Ef
 
 Phithakkitnukoon, S., Smoreda, Z. & Olivier, P. (2012)b. Socio-geography of human mobility: a study using longitudinal mobile phone data. PLoS One, 7, e39253.
 
-Sobolevsky, S., Szell, M., Campari, R., Couronné, T., Smoreda, Z. & Ratti, C. (2013). Delineating geographical regions with networks of human interactions in an extensive set of countries. PLoS One, 8, e81707.
-
-Wesolowski, A., Eagle, N., Tatem, A.J., Smith, D.L., Noor, A.M., Snow, R.W., et al. (2012). Quantifying the impact of human mobility on malaria. Science., 338, 267–70.
-
-
-## Key assumptions
-
-Note that due to a lack of data, this estimation necessarily makes a number of assumptions, and does not represent the _expected_ number of importations over a given time frame. Key points include:
-
-* The data used to train the human movement model are taken from a comparable European country but do not represent the movement in an outbreak situation as they are not estimated on real-time data. This, however could be improved as new data become available. 
-
-
-## Reference
-Balcan, D., Colizza, V., Gonc, B. & Hu, H. (2009). Multiscale mobility networks and the spatial. Proc. Natl. Acad. Sci. U. S. A., 106, 21484–9.
-
 Simini, F., Maritan, A. & Néda, Z. (2013). Human mobility in a continuum approach. PLoS One, 8, e60069.
 
 Simini, F., González, M.C., Maritan, A. & Barabási, A.-L. (2012). A universal model for mobility and migration patterns. Nature, 484, 96-100.
 
+Sobolevsky, S., Szell, M., Campari, R., Couronné, T., Smoreda, Z. & Ratti, C. (2013). Delineating geographical regions with networks of human interactions in an extensive set of countries. PLoS One, 8, e81707.
+
 Tizzoni, M., Bajardi, P., Decuyper, A., Kon Kam King, G., Schneider, C.M., Blondel, V., et al. (2014). On the Use of Human Mobility Proxies for Modeling Epidemics. PLoS Comput. Biol., 10, e1003716.
+
+Wesolowski, A., Eagle, N., Tatem, A.J., Smith, D.L., Noor, A.M., Snow, R.W., et al. (2012). Quantifying the impact of human mobility on malaria. Science., 338, 267–70.
 
 WorldPop project. WorldPop. [http://worldpop.org.uk/](http://worldpop.org.uk/).
 
 Zipf, G.K. (1946). The P1 P2 / D hypothesis: on the intercity movement of persons. Am. Sociol. Rev., 11, 677–686. 
+
