@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Quantifying the relative risk of Ebola case importation at a national level
