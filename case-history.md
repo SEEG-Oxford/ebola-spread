@@ -7,7 +7,7 @@ title: Ebola Case History
 	function setImage(obj)
 	{
 		var value = obj.value;
-		casedata.src = 'images/cases/regional_cases_week_' + (value + 1) + '.png';
+		casedata.src = 'images/cases/regional_cases_week_' + value + '.png';
 		
 	}
 </script>
@@ -19,4 +19,4 @@ Below is a slider controlled history of Ebola case occurrence obtained from WHO 
 
 <img id='casedata' src='images/cases/regional_cases_week_1.png' />
 <br/>
-<input onchange='setImage(this)' type="range" min="0" max="63" value="0" step="1" />
+<input onchange='setImage(this)' type="range" min="1" max="64" value="1" step="1" />
