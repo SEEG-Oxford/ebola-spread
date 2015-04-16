@@ -11,8 +11,9 @@ title: Ebola Case History
 		
 	}
 </script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/1.1.0/rangeslider.min.css" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.com/libraries/rangeslider.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/1.1.0/rangeslider.min.js"></script>
 <script>
     // Initialize a new plugin instance for all
     // e.g. $('input[type="range"]') elements.
