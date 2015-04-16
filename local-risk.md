@@ -17,7 +17,9 @@ The aim of this analysis is to produce a regional, district level metric of the 
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the weighted movement models. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
 [Weighted model source][Weighted-source]
+
 [Historic case occurrence][Historic-cases]
+
 [Historic case predictions][Historic-prediction]
 
 [Weighted-source]: http://seeg-oxford.github.io/ebola-spread/local-risk-weightings
