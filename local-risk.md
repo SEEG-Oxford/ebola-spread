@@ -22,6 +22,9 @@ Predicted relative risk of importation of EVD cases from districts with reported
 
 [Historic case predictions][Historic-prediction]
 
+[Model Validation Statistics][Validation-statistics]
+
 [Weighted-source]: http://seeg-oxford.github.io/ebola-spread/local-risk-weightings
 [Historic-cases]: http://seeg-oxford.github.io/ebola-spread/case-history
 [Historic-prediction]: http://seeg-oxford.github.io/ebola-spread/prediction-history
+[Validation-statistics]: http://seeg-oxford.github.io/ebola-spread/model-comparisons
