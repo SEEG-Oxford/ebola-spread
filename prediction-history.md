@@ -28,7 +28,7 @@ title: Ebola Case History
 
 Below is a slider controlled history of weighted predictions of Ebola importation. Predictions start at week 4 as the weightings are based on the previous 3 weeks.
 <img id="casedata" src="images/predictions/04_regional_prediction_weighted.png" style="display:block;margin-left: auto;margin-right:auto;">
-<input type="range" min="4" max="67" value="1" step="1" data-rangeslider>
+<input type="range" min="4" max="68" value="1" step="1" data-rangeslider>
 <br/>
 <output></output>
 
