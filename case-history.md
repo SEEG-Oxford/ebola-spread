@@ -4,10 +4,17 @@ title: Ebola Case History
 ---
 <script>
 	var img = document.getElementById('casedata');
+	
+	function pad(n, width, z) {
+	  z = z || '0';
+	  n = n + '';
+	  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+	}
+	
 	function setImage(obj)
 	{
 		var value = obj;
-		casedata.src = 'images/cases/regional_cases_week_' + value + '.png';
+		casedata.src = 'images/cases/' + pad(value,2) + '_regional_cases_week.png;
 		
 	}
 </script>
@@ -21,7 +28,7 @@ title: Ebola Case History
 
 Below is a slider controlled history of Ebola case occurrence obtained from WHO EVD data. 
 
-<img id="casedata" src="images/cases/regional_cases_week_1.png" style="display:block;margin-left: auto;margin-right:auto;">
+<img id="casedata" src="images/cases/01_regional_cases_week.png" style="display:block;margin-left: auto;margin-right:auto;">
 <input type="range" min="1" max="67" value="1" step="1" data-rangeslider>
 <br/>
 <output></output>
