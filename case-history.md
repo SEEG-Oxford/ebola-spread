@@ -14,7 +14,7 @@ title: Ebola Case History
 	function setImage(obj)
 	{
 		var value = obj;
-		casedata.src = 'images/cases/' + pad(value,2) + '_regional_cases_week.png;
+		casedata.src = 'images/cases/' + pad(value,2) + '_regional_cases_week.png';
 		
 	}
 </script>
