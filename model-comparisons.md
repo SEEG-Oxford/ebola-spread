@@ -23,8 +23,13 @@ The statistics and analysis are applicable only to the movement models and not t
 We are using a cross validation technique to assess the predictive power of the movement models by both comparing how well each model performs against its own training data, as well as how it performs against observed data in other countries. We have plotted the results of the final fitted models in one composite image showing both Source to Source predictions and Source to Other predictions. There are multiple versions of the Gravity model shown in this plot so as to also assess the power of a 9 parameter Gravity model. The percentage shown is the distance cutoff used to filter between the pairs of parameters.
 
 <a href="images/model_comparisons.png"><img src="images/model_comparisons.png" /></a>
+
 Model Deviances:<br/>
+
 <div id="CSVTable"></div>
+
 Model Correlation Coefficients:<br/>
+
 <div id="CSVTable2"></div>
+
 ## Basic Prediction Analysis
