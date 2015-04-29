@@ -8,4 +8,4 @@ Currently we calculate the deviance of the model against the observed data. We a
 
 We have produced a plot which shows various combinations of predicted vs observed movement data which are shown below.
 
-<img src="images/model_comparisons.png" />
+<a href="images/model_comparisons.png"><img src="images/model_comparisons.png" /></a>
