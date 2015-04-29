@@ -28,10 +28,9 @@ title: Ebola Case History
 
 Below is a slider controlled history of Ebola case occurrence obtained from WHO EVD data. 
 
+<output></output>
 <img id="casedata" src="images/cases/01_regional_cases_week.png" style="display:block;margin-left: auto;margin-right:auto;">
 <input type="range" min="1" max="68" value="1" step="1" data-rangeslider>
-<br/>
-<output></output>
 
 <script>
 	$(function() {
