@@ -26,6 +26,10 @@ Predicted relative risk of importation of EVD cases from districts with reported
 
 [Historic case predictions][Historic-prediction]
 
+For the purpose of assessing a spectrum of different movement patterns and to fill in gaps in data availability, we use a variety of movement models and data sources to predict movement in the core countries, Guinea, Liberia, and Sierra Leone.
+
+To evaluate their respective predictive performance in respect to their ability to predict movement between districts we show simple validation statistics: 
+
 [Model Validation Statistics][Validation-statistics]
 
 [Weighted-source]: http://seeg-oxford.github.io/ebola-spread/local-risk-weightings
