@@ -24,12 +24,24 @@ We are using a cross validation technique to assess the predictive power of the 
 
 <a href="images/model_comparisons.png"><img src="images/model_comparisons.png" /></a>
 
-Model Deviances:<br/>
+### Model Deviances:
 
 <div id="CSVTable"></div>
 
-Model Correlation Coefficients:<br/>
+### Model Correlation Coefficients:
 
 <div id="CSVTable2"></div>
 
 ## Basic Prediction Analysis
+
+### Prediction of Movement in West Africa based on source district population
+
+<a href="images/west_africa_population_movement.png"><img src="images/west_africa_population_movement.png" /></a>
+
+### Prediction of Movement probability in West Africa against destination district population
+
+<a href="images/west_africa_population_probability.png"><img src="images/west_africa_population_probability.png" /></a>
+
+### Prediction of Movement probability in West Africa against distance between regions
+
+<a href="images/west_africa_distance_probability.png"><img src="images/west_africa_distance_probability.png" /></a>
