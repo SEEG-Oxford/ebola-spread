@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weighting source data</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link rel="dat1" type="application/json" href="districts.geojson" />
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+		table, td {
+			border-collapse: collapse;
+			border-style: solid;
+			border-width: 1px;
+			border-color: #e9e9e9;
+			padding: 5px;
+		}
+		.evenrowcol{
+			background-color: #f6f6f6;
+		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+		var map = L.map('map');
+		
+		// scale bar
+		L.control.scale().addTo(map);
+
+		// base layer
+		var baseMaps = {};
+		var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		// baseMap.addTo(map);
+		baseMaps["CartoDB Positron"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		// baseMap.addTo(map);
+		baseMaps["CartoDB Dark matter"] = baseMap;
+		var baseMap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png', {"subdomains":"1234","type":"sat","maxZoom":11,"attribution":"Tiles &copy; <a href=\"http://www.mapquest.com\", target=\"_blank\">MapQuest</a>, Imagery &copy; NASA/JPL-Caltech and USDA Farm Service Agency"});
+		// baseMap.addTo(map);
+		baseMaps["MapQuest Open Aerial"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://thunderforest.com\", target=\"_blank\">Thunderforest</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		// baseMap.addTo(map);
+		baseMaps["Thunderforest Landscape"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {"attribution":"&copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blank\">OpenStreetMap contributors</a>"});
+		baseMap.addTo(map);
+		baseMaps["OpenStreetMap"] = baseMap;
+
+		// popup
+		function onEachFeature(feature, layer) {
+			if (feature.properties &&  feature.properties["OBJECTID"] && feature.properties["NAME"] && feature.properties["COUNTRY_ID"] && feature.properties["GAUL_CODE"] && feature.properties["ADMN_LEVEL"] && feature.properties["PARENT_ID"] && feature.properties["GAUL_D"] && feature.properties["Shape_Leng"] && feature.properties["Shape_Area"] && feature.properties["ID"]) {
+				layer.bindPopup(
+					"<table>" +
+					"<tr class='oddrowcol'><td>OBJECTID: </td><td>"+feature.properties["OBJECTID"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>NAME: </td><td>"+feature.properties["NAME"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>COUNTRY_ID: </td><td>"+feature.properties["COUNTRY_ID"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>GAUL_CODE: </td><td>"+feature.properties["GAUL_CODE"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>ADMN_LEVEL: </td><td>"+feature.properties["ADMN_LEVEL"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>PARENT_ID: </td><td>"+feature.properties["PARENT_ID"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>GAUL_D: </td><td>"+feature.properties["GAUL_D"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>Shape_Leng: </td><td>"+feature.properties["Shape_Leng"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>Shape_Area: </td><td>"+feature.properties["Shape_Area"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>ID: </td><td>"+feature.properties["ID"]+"</td></tr>" +
+					"</table>"
+				);
+			}
+		}
+		
+		// styling
+		function getValue(d) {
+			return d > 0.95 ? '#800026' :
+           d > 0.9 ? '#990026' :
+           d > 0.85 ? '#B30026' :
+           d > 0.8 ? '#C70623' :
+           d > 0.75 ? '#D7111F' :
+           d > 0.7 ? '#E51F1D' :
+           d > 0.65 ? '#F03523' :
+           d > 0.6 ? '#FA4B29' :
+           d > 0.55 ? '#FC6530' :
+           d > 0.5 ? '#FC7F38' :
+           d > 0.45 ? '#FD943F' :
+           d > 0.4 ? '#FDA446' :
+           d > 0.35 ? '#FEB44E' :
+           d > 0.3 ? '#FEC45F' :
+           d > 0.25  ? '#FED471' :
+           d > 0.2  ? '#FEDF83' :
+           d > 0.15  ? '#FEE794' :
+           d > 0.1   ? '#FFEFA6' :
+           d > 0.05   ? '#FFF7B9' :
+           d >= 0   ? '#FFFFCC' :
+                      '#33D3FF';
+		}
+					
+		function getStyle(index) {
+			//return {
+			//	"color": getValue(feature.properties["risk1"]),
+			//	"weight": 1, "fillOpacity": 0.5
+			//};
+			return function(feature) {
+				return {
+					"color": getValue(feature.properties["risk"+index]),
+					"weight": 1, "fillOpacity": 0.7
+				};
+			}
+		}
+		
+		// layer control
+
+		// data layers
+        var layers = {};
+        var group = new L.featureGroup;
+		function addDataToMap(data, style, layer, index) {
+			layers[layer] = L.geoJson(data, {
+				onEachFeature: (typeof onEachFeature == "undefined") ? undefined : onEachFeature,
+				pointToLayer: function (feature, latlng) {return L.circleMarker(latlng);},
+				style: style
+			});
+        	group.addLayer(layers[layer])
+			map.fitBounds(group.getBounds());
+		};
+		
+		if(typeof getStyle == "undefined") getStyle = undefined;
+		$.getJSON($("link[rel='dat1']").attr("href"), function(x) {
+			addDataToMap(x, getStyle(1), "France Gravity");
+			layers["France Gravity"].addTo(map);
+			addDataToMap(x, getStyle(2), "France Original Radiation");
+			addDataToMap(x, getStyle(3), "France Radiation with Selection");
+			addDataToMap(x, getStyle(4), "France Uniform");
+			addDataToMap(x, getStyle(5), "Portugal Gravity");
+			addDataToMap(x, getStyle(6), "Portugal Original Radiation");
+			addDataToMap(x, getStyle(7), "Portugal Radiation with Selection");
+			addDataToMap(x, getStyle(8), "Portugal Uniform");
+			addDataToMap(x, getStyle(9), "Spain Gravity");
+			addDataToMap(x, getStyle(10), "Spain Original Radiation");
+			addDataToMap(x, getStyle(11), "Spain Radiation with Selection");
+			addDataToMap(x, getStyle(12), "Spain Uniform");
+			L.control.layers(baseMaps, layers).addTo(map);
+		});
+		
+		
+		var legend = L.control({position: 'bottomright'});
+
+		legend.onAdd = function (map) {
+
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95],
+				labels = [];
+			// loop through our density intervals and generate a label with a colored square for each interval
+			for (var i = 0; i < grades.length; i++) {
+				div.innerHTML +=
+					'<i style="background:' + getValue(grades[i]) + '"></i> ' +
+					grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+			}
+
+			return div;
+		};
+
+		legend.addTo(map);
+	</script>
+</body>
+</html>
