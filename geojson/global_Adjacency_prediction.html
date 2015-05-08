@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>global_Adjacency_prediction</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link rel="dat1" type="application/json" href="countries.geojson" />
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+		var map = L.map('map');
+		
+		// scale bar
+		L.control.scale().addTo(map);
+
+		// base layer
+		var baseMaps = {};
+		var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		baseMap.addTo(map);
+		baseMaps["CartoDB Positron"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		baseMap.addTo(map);
+		baseMaps["CartoDB Dark matter"] = baseMap;
+		var baseMap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png', {"subdomains":"1234","type":"sat","maxZoom":11,"attribution":"Tiles &copy; <a href=\"http://www.mapquest.com\", target=\"_blank\">MapQuest</a>, Imagery &copy; NASA/JPL-Caltech and USDA Farm Service Agency"});
+		baseMap.addTo(map);
+		baseMaps["MapQuest Open Aerial"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://thunderforest.com\", target=\"_blank\">Thunderforest</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+		baseMap.addTo(map);
+		baseMaps["Thunderforest Landscape"] = baseMap;
+		var baseMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {"attribution":"&copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blank\">OpenStreetMap contributors</a>"});
+		baseMap.addTo(map);
+		baseMaps["OpenStreetMap"] = baseMap;
+
+		// popup
+		function onEachFeature(feature, layer) {
+			if (feature.properties &&  feature.properties["ID"]) {
+				layer.bindPopup("ID: " + feature.properties["ID"]);
+			}
+		}
+
+		// styling
+		function getValue(x) {
+			return x == "0" ? "#E6E6E6" :
+			       x == "1" ? "#FFFFCC" :
+			       x == "2" ? "#FFFFCC" :
+			       x == "3" ? "#FFFFCC" :
+			       x == "4" ? "#FFFFCC" :
+			       x == "5" ? "#FFFFCC" :
+			       x == "6" ? "#FFFFCC" :
+			       x == "7" ? "#FFFFCC" :
+			       x == "8" ? "#FFFFCC" :
+			       x == "9" ? "#FFFFCC" :
+			       x == "10" ? "#FFFFCC" :
+			       x == "11" ? "#FFFFCC" :
+			       x == "12" ? "#FFFFCC" :
+			       x == "13" ? "#FFFFCC" :
+			       x == "14" ? "#FFFFCC" :
+			       x == "15" ? "#FEC965" :
+			       x == "16" ? "#FFFFCC" :
+			       x == "17" ? "#FFFFCC" :
+			       x == "18" ? "#FFFFCC" :
+			       x == "19" ? "#FFFFCC" :
+			       x == "20" ? "#FFFFCC" :
+			       x == "21" ? "#FFFFCC" :
+			       x == "22" ? "#FFFFCC" :
+			       x == "23" ? "#800026" :
+			       x == "24" ? "#FFFFCC" :
+			       x == "25" ? "#FFFFCC" :
+			       x == "26" ? "#FFFFCC" :
+			       x == "27" ? "#FFFFCC" :
+			       x == "28" ? "#FFFFCC" :
+			       x == "29" ? "#FFFFCC" :
+			       x == "30" ? "#FFFFCC" :
+			       x == "31" ? "#FFFFCC" :
+			       x == "32" ? "#FFFFCC" :
+			       x == "33" ? "#FFFFCC" :
+			       x == "34" ? "#FFFFCC" :
+			       x == "35" ? "#FFFFCC" :
+			       x == "36" ? "#FFFFCC" :
+			       x == "37" ? "#FFFFCC" :
+			       x == "38" ? "#FFFFCC" :
+			       x == "39" ? "#FFFFCC" :
+			       x == "40" ? "#FFFFCC" :
+			       x == "41" ? "#FFFFCC" :
+			       x == "42" ? "#FFFFCC" :
+			       x == "43" ? "#FFFFCC" :
+			       x == "44" ? "#FFFFCC" :
+			       x == "45" ? "#FFFFCC" :
+			       x == "46" ? "#FFFFCC" :
+			       x == "47" ? "#FFFFCC" :
+			       x == "48" ? "#FFFFCC" :
+			       x == "49" ? "#800026" :
+			       x == "50" ? "#FFFFCC" :
+			       x == "51" ? "#FFFFCC" :
+			       x == "52" ? "#FFFFCC" :
+			       x == "53" ? "#FFFFCC" :
+			       x == "54" ? "#FFFFCC" :
+			       x == "55" ? "#FFFFCC" :
+			       x == "56" ? "#FFFFCC" :
+			       x == "57" ? "#FFFFCC" :
+			       x == "58" ? "#FFFFCC" :
+			       x == "59" ? "#FFFFCC" :
+			       x == "60" ? "#FEC965" :
+			       x == "61" ? "#FFFFCC" :
+			       x == "62" ? "#FFFFCC" :
+			       x == "63" ? "#FFFFCC" :
+			       x == "64" ? "#FFFFCC" :
+			       x == "65" ? "#FFFFCC" :
+			       x == "66" ? "#FFFFCC" :
+			       x == "67" ? "#FFFFCC" :
+			       x == "68" ? "#FFFFCC" :
+			       x == "69" ? "#FFFFCC" :
+			       x == "70" ? "#FFFFCC" :
+			       x == "71" ? "#FFFFCC" :
+			       x == "72" ? "#FFFFCC" :
+			       x == "73" ? "#FFFFCC" :
+			       x == "74" ? "#F74327" :
+			       x == "75" ? "#33D3FF" :
+			       x == "76" ? "#FFFFCC" :
+			       x == "77" ? "#FFFFCC" :
+			       x == "78" ? "#FFFFCC" :
+			       x == "79" ? "#FFFFCC" :
+			       x == "80" ? "#FFFFCC" :
+			       x == "81" ? "#FEC965" :
+			       x == "82" ? "#F74327" :
+			       x == "83" ? "#FFFFCC" :
+			       x == "84" ? "#FFFFCC" :
+			       x == "85" ? "#FFFFCC" :
+			       x == "86" ? "#F74327" :
+			       x == "87" ? "#FFFFCC" :
+			       x == "88" ? "#FFFFCC" :
+			       x == "89" ? "#FFFFCC" :
+			       x == "90" ? "#FFFFCC" :
+			       x == "91" ? "#FFFFCC" :
+			       x == "92" ? "#FFFFCC" :
+			       x == "93" ? "#FFFFCC" :
+			       x == "94" ? "#FFFFCC" :
+			       x == "95" ? "#FFFFCC" :
+			       x == "96" ? "#FFFFCC" :
+			       x == "97" ? "#FFFFCC" :
+			       x == "98" ? "#FFFFCC" :
+			       x == "99" ? "#FFFFCC" :
+			       x == "100" ? "#FFFFCC" :
+			       x == "101" ? "#FFFFCC" :
+			       x == "102" ? "#FFFFCC" :
+			       x == "103" ? "#FFFFCC" :
+			       x == "104" ? "#FFFFCC" :
+			       x == "105" ? "#FFFFCC" :
+			       x == "106" ? "#FFFFCC" :
+			       x == "107" ? "#FFFFCC" :
+			       x == "108" ? "#FFFFCC" :
+			       x == "109" ? "#FFFFCC" :
+			       x == "110" ? "#FFFFCC" :
+			       x == "111" ? "#FFFFCC" :
+			       x == "112" ? "#FFFFCC" :
+			       x == "113" ? "#FFFFCC" :
+			       x == "114" ? "#FFFFCC" :
+			       x == "115" ? "#FFFFCC" :
+			       x == "116" ? "#FFFFCC" :
+			       x == "117" ? "#FFFFCC" :
+			       x == "118" ? "#FFFFCC" :
+			       x == "119" ? "#FFFFCC" :
+			       x == "120" ? "#E6E6E6" :
+			       x == "121" ? "#FFFFCC" :
+			       x == "122" ? "#FFFFCC" :
+			       x == "123" ? "#FFFFCC" :
+			       x == "124" ? "#FFFFCC" :
+			       x == "125" ? "#FFFFCC" :
+			       x == "126" ? "#FFFFCC" :
+			       x == "127" ? "#FFFFCC" :
+			       x == "128" ? "#FFFFCC" :
+			       x == "129" ? "#FFFFCC" :
+			       x == "130" ? "#FFFFCC" :
+			       x == "131" ? "#FFFFCC" :
+			       x == "132" ? "#FFFFCC" :
+			       x == "133" ? "#FFFFCC" :
+			       x == "134" ? "#FFFFCC" :
+			       x == "135" ? "#FFFFCC" :
+			       x == "136" ? "#FFFFCC" :
+			       x == "137" ? "#F74327" :
+			       x == "138" ? "#FFFFCC" :
+			       x == "139" ? "#FFFFCC" :
+			       x == "140" ? "#FFFFCC" :
+			       x == "141" ? "#FFFFCC" :
+			       x == "142" ? "#FFFFCC" :
+			       x == "143" ? "#FFFFCC" :
+			       x == "144" ? "#FFFFCC" :
+			       x == "145" ? "#FFFFCC" :
+			       x == "146" ? "#800026" :
+			       x == "147" ? "#FFFFCC" :
+			       x == "148" ? "#FFFFCC" :
+			       x == "149" ? "#FFFFCC" :
+			       x == "150" ? "#800026" :
+			       x == "151" ? "#FFFFCC" :
+			       x == "152" ? "#FFFFCC" :
+			       x == "153" ? "#FFFFCC" :
+			       x == "154" ? "#FFFFCC" :
+			       x == "155" ? "#FFFFCC" :
+			       x == "156" ? "#FFFFCC" :
+			       x == "157" ? "#FFFFCC" :
+			       x == "158" ? "#FFFFCC" :
+			       x == "159" ? "#FFFFCC" :
+			       x == "160" ? "#FFFFCC" :
+			       x == "161" ? "#FFFFCC" :
+			       x == "162" ? "#FFFFCC" :
+			       x == "163" ? "#FFFFCC" :
+			       x == "164" ? "#F74327" :
+			       x == "165" ? "#E6E6E6" :
+			       x == "166" ? "#FFFFCC" :
+			       x == "167" ? "#FEC965" :
+			       x == "168" ? "#FFFFCC" :
+			       x == "169" ? "#FFFFCC" :
+			       x == "170" ? "#FFFFCC" :
+			       x == "171" ? "#FFFFCC" :
+			       x == "172" ? "#FFFFCC" :
+			       x == "173" ? "#33D3FF" :
+			       x == "174" ? "#FFFFCC" :
+			       x == "175" ? "#FFFFCC" :
+			       x == "176" ? "#33D3FF" :
+			       x == "177" ? "#FFFFCC" :
+			       x == "178" ? "#FFFFCC" :
+			       x == "179" ? "#FFFFCC" :
+			       x == "180" ? "#FFFFCC" :
+			       x == "181" ? "#FFFFCC" :
+			       x == "182" ? "#FFFFCC" :
+			       x == "183" ? "#FFFFCC" :
+			       x == "184" ? "#FFFFCC" :
+			       x == "185" ? "#FFFFCC" :
+			       x == "186" ? "#FFFFCC" :
+			       x == "187" ? "#FFFFCC" :
+			       x == "188" ? "#FFFFCC" :
+			       x == "189" ? "#FFFFCC" :
+			       x == "190" ? "#FFFFCC" :
+			       "";
+		}
+					
+		function style1(feature) {
+			return {
+				"color": getValue(feature.properties["ID"]),
+				"weight": 1, "fillOpacity": 0.5
+			};
+		}
+
+		// data layers
+        var layers = {};
+        var group = new L.featureGroup;
+		function addDataToMap(data, style, layer) {
+			layers[layer] = L.geoJson(data, {
+				onEachFeature: (typeof onEachFeature == "undefined") ? undefined : onEachFeature,
+				pointToLayer: function (feature, latlng) {return L.circleMarker(latlng);},
+				style: style
+			});
+			layers[layer].addTo(map);	
+        	group.addLayer(layers[layer])
+			map.fitBounds(group.getBounds());
+		};
+		
+		if(typeof style1 == "undefined") style1 = undefined;
+		$.getJSON($("link[rel='dat1']").attr("href"), function(x) {addDataToMap(x, style1, "countries")});
+		
+		
+		// layer control
+		L.control.layers(baseMaps).addTo(map);
+	</script>
+</body>
+</html>
