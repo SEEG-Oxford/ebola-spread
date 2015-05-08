@@ -15,12 +15,21 @@ The aim of this analysis is to produce a global, national-level metric of the re
 
 <a href="images/global_Overall_prediction_large.png"><img src="images/global_Overall_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the overall model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+[Click here to see an interactive version of the map][geojson-overall]
 
 <a href="images/global_Adjacency_prediction_large.png"><img src="images/global_Adjacency_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Adjacency model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+[Click here to see an interactive version of the map][geojson-adjacency]
 
 <a href="images/global_Gravity_prediction_large.png"><img src="images/global_Gravity_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+[Click here to see an interactive version of the map][geojson-gravity]
 
 <a href="images/global_Migration_prediction_large.png"><img src="images/global_Migration_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the Migration model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
+[Click here to see an interactive version of the map][geojson-migration]
+
+[geojson-overall]: http://seeg-oxford.github.io/ebola-spread/geojson/global_Overall_prediction
+[geojson-adjacency]: http://seeg-oxford.github.io/ebola-spread/geojson/global_Adjacency_prediction
+[geojson-gravity]: http://seeg-oxford.github.io/ebola-spread/geojson/global_Gravity_prediction
+[geojson-migration]: http://seeg-oxford.github.io/ebola-spread/geojson/global_Migration_prediction
