@@ -1,9 +1,13 @@
+// create the base map
 var map = L.map('map', {
 	loadingControl: true
 });
+// setup various global variables
 var layers = {};
 spreadData = null;
 countryNameData = null;
+geojson = null;
+
 var group = new L.featureGroup;
 
 // scale bar
@@ -20,21 +24,22 @@ baseMap.addTo(map);
 baseMaps["OpenStreetMap"] = baseMap;
 L.control.layers(baseMaps).addTo(map);
 
-$.ajax({
-	url: 'http://seeg-oxford.github.io/ebola-spread/data/all.csv',
-	success: function(data) {
-		spreadData = data;
-		downloadNamesAndCalculateRisk(data, 1, 0.5, 1, 24, 0, 2);
-	}
+// download the geojson file and start the method chain for rendering it
+$.getJSON($("link[rel='dat1']").attr("href"), function(x) {
+	geojson = x;
+	downloadSpreadData(geojson);
 });
 
+// create the UI controls
 var info = L.control();
 
 var cases = L.control({position: 'topleft'});
 
 var legend = L.control({position: 'bottomright'});
 
-function addDataToMap(data, style, layer, index) {
+var waiting = L.control();
+
+function addDataToMap(data, style, layer, fit) {
 	layers = {};
 	layers[layer] = L.geoJson(data, {
 		onEachFeature: (typeof onEachFeature == "undefined") ? undefined : onEachFeature,
@@ -43,24 +48,39 @@ function addDataToMap(data, style, layer, index) {
 	});
 	group.clearLayers();
 	group.addLayer(layers[layer])
-	map.fitBounds(group.getBounds());
+	// only reset the zoom if fit is true
+	if(fit) map.fitBounds(group.getBounds());
 };
 
-function downloadNamesAndCalculateRisk(data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s) {
+function downloadSpreadData(geojson) {
+	$.ajax({
+		url: 'http://seeg-oxford.github.io/ebola-spread/data/all.csv',
+		success: function(data) {
+			spreadData = data;
+			// current default values
+			downloadNamesAndCalculateRisk(geojson, data, 1, 0.5, 1, 24, 0, 2);
+		}
+	});
+}
+
+function downloadNamesAndCalculateRisk(geojson, data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s) {
 	$.ajax({
 			url: 'http://seeg-oxford.github.io/ebola-spread/data/names.dat',
 			success: function(countryData) {
+				$(".waiting").show();
 				countryNameData = countryData;
-				calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s);
+				calculateGlobalRisks(geojson, countryData, data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s);
 			}
 	});
 }
 
-function calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s) {
+// ported from the R version of the Inform calculator
+function calculateGlobalRisks(geojson, countryData, data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s) {
 	// populations
 	g_pop = 12347766;
 	l_pop = 4503439;
 	s_pop = 6318575;
+	// parse the csv data into an array
 	all = Papa.parse(data, {
 		header: true,
 		dynamicTyping: true
@@ -69,8 +89,9 @@ function calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight,
 	gravitySum = [];
 	adjacencySum = [];
 	countryCode = [];
-	// turn the name data into an array (make sure the file keeps windows line endings
+	// turn the name data into an array (make sure the file keeps windows line endings)
 	countryNames = countryData.split("\r\n");
+	// do the calculations for each of the models
 	for (i = 0; i < all.data.length; i++) {
 		migrationSum.push(all.data[i]["sum_guinea"]*(g/g_pop) + all.data[i]["sum_liberia"]*(l/l_pop) + all.data[i]["sum_sierra_leone"]*(s/s_pop));
 		gravitySum.push(all.data[i]["movement_from_guinea"]*(g/g_pop) + all.data[i]["movement_from_liberia"]*(l/l_pop) + all.data[i]["movement_from_sierra_leone"]*(s/s_pop));
@@ -95,6 +116,7 @@ function calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight,
 		// load the importation risk into the correct index by looking up the country code in the countryNames variable
 		importationRisk[countryNames.indexOf(countryCode[i])] = (((migrationRelative[i]*migrationWeight) + (gravityRelative[i]*gravityWeight) + (adjacencyRelative[i]*adjacencyWeight))/3)
 	}
+	// extra bit to make the core countries blue and then re-weight the rest
 	tempArray = importationRisk;
 	tempArray[countryNames.indexOf("LBR")] = 0;
 	tempArray[countryNames.indexOf("SLE")] = 0;
@@ -109,17 +131,19 @@ function calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight,
 		}
 	}
 	if(typeof getStyle == "undefined") getStyle = undefined;
-	$.getJSON($("link[rel='dat1']").attr("href"), function(x) {
-		if(layers.hasOwnProperty("Overall Global Risk")) {
-			//layers["Overall Global Risk"].removeFrom(map);
-			map.removeLayer(layers["Overall Global Risk"]);
-		}
-		addDataToMap(x, getStyle(1), "Overall Global Risk");
-		layers["Overall Global Risk"].addTo(map);						
-	});	
-
+	
+	fit = true;
+	// if this is a recalculation then the layer already exists and must be removed first. Also, we don't want to reset the zoom level so we set "fit" to false
+	if(layers.hasOwnProperty("Overall Global Risk")) {
+		map.removeLayer(layers["Overall Global Risk"]);
+		fit = false;
+	}
+	addDataToMap(geojson, getStyle(1), "Overall Global Risk", fit);
+	layers["Overall Global Risk"].addTo(map);	
+	$(".waiting").hide();
 }
 
+// helper function to pre-fill an array
 function newFilledArray(length, val) {
 	var array = [];
 	for (var i = 0; i < length; i++) {
@@ -201,7 +225,8 @@ info.update = function () {
 };
 
 refreshFromUI = function() {
-	calculateGlobalRisks(countryNameData, spreadData, $("#migrationval").val(), $("#gravityval").val(), $("#adjacencyval").val(), $("#ginval").val(), $("#lbrval").val(), $("#sleval").val());
+	$(".waiting").show();
+	setTimeout(function(){calculateGlobalRisks(geojson, countryNameData, spreadData, $("#migrationval").val(), $("#gravityval").val(), $("#adjacencyval").val(), $("#ginval").val(), $("#lbrval").val(), $("#sleval").val())}, 0);
 }
 
 info.addTo(map);
@@ -265,3 +290,15 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
+
+waiting.onAdd = function(map) {
+	this._div = L.DomUtil.create('div', 'waiting'); // create a div with a class "info"
+	this.update();
+	return this._div;
+}
+
+waiting.update = function () {
+	this._div.innerHTML = "<h4>Calculating Global Risk</h4>";
+}
+
+waiting.addTo(map);
