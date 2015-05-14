@@ -1,32 +1,39 @@
 var map = L.map('map', {
 	loadingControl: true
 });
+var layers = {};
+spreadData = null;
+countryNameData = null;
+var group = new L.featureGroup;
 
 // scale bar
 L.control.scale().addTo(map);
 
 // base layer
 var baseMaps = {};
-var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
-// baseMap.addTo(map);
-baseMaps["CartoDB Positron"] = baseMap;
-var baseMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
-// baseMap.addTo(map);
-baseMaps["CartoDB Dark matter"] = baseMap;
-var baseMap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png', {"subdomains":"1234","type":"sat","maxZoom":11,"attribution":"Tiles &copy; <a href=\"http://www.mapquest.com\", target=\"_blank\">MapQuest</a>, Imagery &copy; NASA/JPL-Caltech and USDA Farm Service Agency"});
-// baseMap.addTo(map);
-baseMaps["MapQuest Open Aerial"] = baseMap;
-var baseMap = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://thunderforest.com\", target=\"_blank\">Thunderforest</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
-// baseMap.addTo(map);
-baseMaps["Thunderforest Landscape"] = baseMap;
+baseMaps["CartoDB Positron"] = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+baseMaps["CartoDB Dark matter"] = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://cartodb.com/attributions\", target=\"_blank\">CartoDB</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
+baseMaps["MapQuest Open Aerial"] = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png', {"subdomains":"1234","type":"sat","maxZoom":11,"attribution":"Tiles &copy; <a href=\"http://www.mapquest.com\", target=\"_blank\">MapQuest</a>, Imagery &copy; NASA/JPL-Caltech and USDA Farm Service Agency"});
+baseMaps["Thunderforest Landscape"] = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {"attribution":"Tiles &copy; <a href=\"http://thunderforest.com\", target=\"_blank\">Thunderforest</a>, Map data &copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blan\">OpenStreetMap contributors</a>"});
 var baseMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {"attribution":"&copy; <a href=\"http://openstreetmap.org/copyright\", target=\"_blank\">OpenStreetMap contributors</a>"});
 baseMap.addTo(map);
 baseMaps["OpenStreetMap"] = baseMap;
 L.control.layers(baseMaps).addTo(map);
 
-var layers = {};
+$.ajax({
+	url: 'http://seeg-oxford.github.io/ebola-spread/data/all.csv',
+	success: function(data) {
+		spreadData = data;
+		downloadNamesAndCalculateRisk(data, 1, 0.5, 1, 24, 0, 2);
+	}
+});
 
-var group = new L.featureGroup;
+var info = L.control();
+
+var cases = L.control({position: 'topleft'});
+
+var legend = L.control({position: 'bottomright'});
+
 function addDataToMap(data, style, layer, index) {
 	layers = {};
 	layers[layer] = L.geoJson(data, {
@@ -38,19 +45,6 @@ function addDataToMap(data, style, layer, index) {
 	group.addLayer(layers[layer])
 	map.fitBounds(group.getBounds());
 };
-
-if(typeof getStyle == "undefined") getStyle = undefined;
-
-spreadData = null;
-countryNameData = null;
-
-$.ajax({
-	url: 'http://seeg-oxford.github.io/ebola-spread/data/all.csv',
-	success: function(data) {
-		spreadData = data;
-		downloadNamesAndCalculateRisk(data, 1, 0.5, 1, 24, 0, 2);
-	}
-});
 
 function downloadNamesAndCalculateRisk(data, migrationWeight, gravityWeight, adjacencyWeight, g, l, s) {
 	$.ajax({
@@ -114,6 +108,7 @@ function calculateGlobalRisks(countryData, data, migrationWeight, gravityWeight,
 			importationRisk[countryNames.indexOf(countryCode[i])] = -1;
 		}
 	}
+	if(typeof getStyle == "undefined") getStyle = undefined;
 	$.getJSON($("link[rel='dat1']").attr("href"), function(x) {
 		if(layers.hasOwnProperty("Overall Global Risk")) {
 			//layers["Overall Global Risk"].removeFrom(map);
@@ -135,7 +130,7 @@ function newFilledArray(length, val) {
 
 // popup
 function onEachFeature(feature, layer) {
-	if (feature.properties &&  feature.properties["OBJECTID"] && feature.properties["admin0_NAM"] && feature.properties["admin0_COU"] && feature.properties["GAUL_CODE"] && feature.properties["ADMN_LEVEL"] && feature.properties["PARENT_ID"] && feature.properties["admin0_GAU"] && feature.properties["Shape_Leng"] && feature.properties["Shape_Area"] && feature.properties["ID"]) {
+	if (feature.properties) {
 		layer.bindPopup(
 			"<table>" +
 			"<tr class='oddrowcol'><td>OBJECTID: </td><td>"+feature.properties["OBJECTID"]+"</td></tr>" +
@@ -187,7 +182,6 @@ function getStyle(index) {
 	}
 }
 
-var info = L.control();
 
 info.onAdd = function (map) {
 	this._div = L.DomUtil.create('div', 'weightings'); // create a div with a class "info"
@@ -224,14 +218,11 @@ info.getContainer().addEventListener('mouseout', function () {
 	map.doubleClickZoom.enable();
 });
 
-var cases = L.control({position: 'topleft'});
-
 cases.onAdd = function (map) {
 	this._div = L.DomUtil.create('div', 'cases'); // create a div with a class "info"
 	this.update();
 	return this._div;
 };
-
 
 // method that we will use to update the control based on feature properties passed
 cases.update = function () {
@@ -257,8 +248,6 @@ cases.getContainer().addEventListener('mouseout', function () {
 	map.dragging.enable();
 	map.doubleClickZoom.enable();
 });
-
-var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
