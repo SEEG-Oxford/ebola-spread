@@ -16,6 +16,16 @@
 		html, body, #map {
 			height: 100%;
 		}
+		table, td {
+			border-collapse: collapse;
+			border-style: solid;
+			border-width: 1px;
+			border-color: #e9e9e9;
+			padding: 5px;
+		}
+		.evenrowcol{
+			background-color: #f6f6f6;
+		}
 		.legend {
 			padding: 6px 8px;
 			font: 14px/16px Arial, Helvetica, sans-serif;
@@ -99,8 +109,28 @@
 
 		// popup
 		function onEachFeature(feature, layer) {
-			if (feature.properties &&  feature.properties["ID"]) {
-				layer.bindPopup("ID: " + feature.properties["ID"]);
+			if (feature.properties &&  feature.properties["OBJECTID"] && feature.properties["COUNTRY_ID"] && feature.properties["NAME"] && feature.properties["GAUL_CODE"] && feature.properties["ADMN_LEVEL"] && feature.properties["PARENT_ID"] && feature.properties["admin0_GAU"] && feature.properties["admin0_NAM"] && feature.properties["admin0_PAR"] && feature.properties["admin0_ADM"] && feature.properties["admin0_COU"] && feature.properties["admin0_Are"] && feature.properties["InfoRM_cou"] && feature.properties["InfoRM_c_1"] && feature.properties["Shape_Leng"] && feature.properties["Shape_Area"] && feature.properties["ID"]) {
+				layer.bindPopup(
+					"<table>" +
+					"<tr class='oddrowcol'><td>OBJECTID: </td><td>"+feature.properties["OBJECTID"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>COUNTRY_ID: </td><td>"+feature.properties["COUNTRY_ID"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>NAME: </td><td>"+feature.properties["NAME"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>GAUL_CODE: </td><td>"+feature.properties["GAUL_CODE"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>ADMN_LEVEL: </td><td>"+feature.properties["ADMN_LEVEL"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>PARENT_ID: </td><td>"+feature.properties["PARENT_ID"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>admin0_GAU: </td><td>"+feature.properties["admin0_GAU"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>admin0_NAM: </td><td>"+feature.properties["admin0_NAM"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>admin0_PAR: </td><td>"+feature.properties["admin0_PAR"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>admin0_ADM: </td><td>"+feature.properties["admin0_ADM"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>admin0_COU: </td><td>"+feature.properties["admin0_COU"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>admin0_Are: </td><td>"+feature.properties["admin0_Are"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>InfoRM_cou: </td><td>"+feature.properties["InfoRM_cou"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>InfoRM_c_1: </td><td>"+feature.properties["InfoRM_c_1"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>Shape_Leng: </td><td>"+feature.properties["Shape_Leng"]+"</td></tr>" +
+					"<tr class='evenrowcol'><td>Shape_Area: </td><td>"+feature.properties["Shape_Area"]+"</td></tr>" +
+					"<tr class='oddrowcol'><td>ID: </td><td>"+feature.properties["ID"]+"</td></tr>" +
+					"</table>"
+				);
 			}
 		}
 
