@@ -11,38 +11,38 @@ This page documents the different movement models that are used to calculate the
 
 [weighting-geojson]: http://seeg-oxford.github.io/ebola-spread/geojson/Regional_Risk_Source/regional_prediction_source
 
-<a href="images/regional_prediction_radsel_france_large.png"><img src="images/regional_prediction_radsel_france.png" /></a>
+<a href="images/regional_prediction_France Radiation With Selection_large.png"><img src="images/regional_prediction_France Radiation With Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the radiation with selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_gravity_france_large.png"><img src="images/regional_prediction_gravity_france.png" /></a>
+<a href="images/regional_prediction_France Gravity_large.png"><img src="images/regional_prediction_France Gravity.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_radiation_france_large.png"><img src="images/regional_prediction_radiation_france.png" /></a>
+<a href="images/regional_prediction_France Original Radiation_large.png"><img src="images/regional_prediction_France Original Radiation.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the original radiation model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_uniform_france_large.png"><img src="images/regional_prediction_uniform_france.png" /></a>
+<a href="images/regional_prediction_France Uniform Selection_large.png"><img src="images/regional_prediction_France Uniform Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the uniform selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_radsel_portugal_large.png"><img src="images/regional_prediction_radsel_portugal.png" /></a>
+<a href="images/regional_prediction_Portugal Radiation With Selection_large.png"><img src="images/regional_prediction_Portugal Radiation With Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the radiation with selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_gravity_portugal_large.png"><img src="images/regional_prediction_gravity_portugal.png" /></a>
+<a href="images/regional_prediction_Portugal Gravity_large.png"><img src="images/regional_prediction_Portugal Gravity.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_radiation_portugal_large.png"><img src="images/regional_prediction_radiation_portugal.png" /></a>
+<a href="images/regional_prediction_Portugal Original Radiation_large.png"><img src="images/regional_prediction_Portugal Original Radiation.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the original radiation model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_uniform_portugal_large.png"><img src="images/regional_prediction_uniform_portugal.png" /></a>
+<a href="images/regional_prediction_Portugal Uniform Selection_large.png"><img src="images/regional_prediction_Portugal Uniform Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the uniform selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_radsel_spain_large.png"><img src="images/regional_prediction_radsel_spain.png" /></a>
+<a href="images/regional_prediction_Spain Radiation With Selection_large.png"><img src="images/regional_prediction_Spain Radiation With Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the radiation with selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_gravity_spain_large.png"><img src="images/regional_prediction_gravity_spain.png" /></a>
+<a href="images/regional_prediction_Spain Gravity_large.png"><img src="images/regional_prediction_Spain Gravity.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the gravity model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_radiation_spain_large.png"><img src="images/regional_prediction_radiation_spain.png" /></a>
+<a href="images/regional_prediction_Spain Original Radiation_large.png"><img src="images/regional_prediction_Spain Original Radiation.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the original radiation model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
 
-<a href="images/regional_prediction_uniform_spain_large.png"><img src="images/regional_prediction_uniform_spain.png" /></a>
+<a href="images/regional_prediction_Spain Uniform Selection_large.png"><img src="images/regional_prediction_Spain Uniform Selection.png" /></a>
 Predicted relative risk of importation of EVD cases from districts with reported cases in the last <b>21</b> days using the uniform selection model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Districts with reported cases are coloured blue to prevent skew.
