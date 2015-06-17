@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>global_Gravity_prediction</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="leafletR">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -27,6 +26,59 @@
 		.evenrowcol{
 			background-color: #f6f6f6;
 		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
 	</style>
 </head>
 <body>
@@ -85,7 +137,7 @@
 		// styling
 		function getValue(x) {
 			return x == "0" ? "#E6E6E6" :
-			       x == "1" ? "#FFFAC0" :
+			       x == "1" ? "#FFF9BF" :
 			       x == "2" ? "#FFFECB" :
 			       x == "3" ? "#FFFDC9" :
 			       x == "4" ? "#FFFDC9" :
@@ -95,22 +147,22 @@
 			       x == "8" ? "#FFFECA" :
 			       x == "9" ? "#FFFECB" :
 			       x == "10" ? "#FFFDC8" :
-			       x == "11" ? "#FFFDC8" :
-			       x == "12" ? "#FFFECB" :
-			       x == "13" ? "#FC7D37" :
+			       x == "11" ? "#FFFDC7" :
+			       x == "12" ? "#FFFECA" :
+			       x == "13" ? "#FC7735" :
 			       x == "14" ? "#FFFFCC" :
 			       x == "15" ? "#FFF9BE" :
-			       x == "16" ? "#FFEDA2" :
+			       x == "16" ? "#FFEDA1" :
 			       x == "17" ? "#FFFBC2" :
 			       x == "18" ? "#FFF8BB" :
 			       x == "19" ? "#FFFDC8" :
 			       x == "20" ? "#FFFECB" :
 			       x == "21" ? "#FFFECB" :
 			       x == "22" ? "#FFFBC3" :
-			       x == "23" ? "#FEDD7F" :
+			       x == "23" ? "#FEDF84" :
 			       x == "24" ? "#FFFDC9" :
 			       x == "25" ? "#FFFCC7" :
-			       x == "26" ? "#FEE896" :
+			       x == "26" ? "#FEE794" :
 			       x == "27" ? "#FFF4B2" :
 			       x == "28" ? "#FFFFCC" :
 			       x == "29" ? "#FFF0A9" :
@@ -119,7 +171,7 @@
 			       x == "32" ? "#FFFDC7" :
 			       x == "33" ? "#FFFECB" :
 			       x == "34" ? "#FFFAC2" :
-			       x == "35" ? "#F03623" :
+			       x == "35" ? "#EE3122" :
 			       x == "36" ? "#FFFFCC" :
 			       x == "37" ? "#FFFFCC" :
 			       x == "38" ? "#FFFECA" :
@@ -129,15 +181,15 @@
 			       x == "42" ? "#FFFCC5" :
 			       x == "43" ? "#FFFECA" :
 			       x == "44" ? "#FFFECB" :
-			       x == "45" ? "#FEEB9D" :
+			       x == "45" ? "#FEEB9C" :
 			       x == "46" ? "#FFF9BF" :
-			       x == "47" ? "#FFFCC5" :
+			       x == "47" ? "#FFFCC4" :
 			       x == "48" ? "#FFFFCC" :
-			       x == "49" ? "#FC7434" :
+			       x == "49" ? "#FC863A" :
 			       x == "50" ? "#FFFECB" :
 			       x == "51" ? "#FFFDC8" :
 			       x == "52" ? "#FFFEC9" :
-			       x == "53" ? "#FFFAC1" :
+			       x == "53" ? "#FFFAC0" :
 			       x == "54" ? "#FFFDC9" :
 			       x == "55" ? "#FFFDC9" :
 			       x == "56" ? "#FFFECB" :
@@ -149,8 +201,8 @@
 			       x == "62" ? "#FFFECA" :
 			       x == "63" ? "#FFFFCC" :
 			       x == "64" ? "#FFFECA" :
-			       x == "65" ? "#FFFDC8" :
-			       x == "66" ? "#FFF9BE" :
+			       x == "65" ? "#FFFDC7" :
+			       x == "66" ? "#FFF9BD" :
 			       x == "67" ? "#FFFECA" :
 			       x == "68" ? "#FFFECB" :
 			       x == "69" ? "#FFFECB" :
@@ -165,22 +217,22 @@
 			       x == "78" ? "#FFFECA" :
 			       x == "79" ? "#FFEDA1" :
 			       x == "80" ? "#FFFCC6" :
-			       x == "81" ? "#FFF3B0" :
-			       x == "82" ? "#FFF4B3" :
-			       x == "83" ? "#FEE590" :
+			       x == "81" ? "#FFF4B1" :
+			       x == "82" ? "#FFF5B4" :
+			       x == "83" ? "#FEE591" :
 			       x == "84" ? "#FFFECA" :
 			       x == "85" ? "#FFFECA" :
-			       x == "86" ? "#FDAF4A" :
+			       x == "86" ? "#FDB04B" :
 			       x == "87" ? "#FFFBC4" :
-			       x == "88" ? "#FEC762" :
+			       x == "88" ? "#FEC35E" :
 			       x == "89" ? "#FFFFCC" :
 			       x == "90" ? "#FFFAC0" :
-			       x == "91" ? "#FFFBC2" :
+			       x == "91" ? "#FFFAC2" :
 			       x == "92" ? "#FFFCC6" :
-			       x == "93" ? "#FFFCC7" :
+			       x == "93" ? "#FFFCC6" :
 			       x == "94" ? "#FFFFCC" :
 			       x == "95" ? "#FFF3AF" :
-			       x == "96" ? "#FFFCC4" :
+			       x == "96" ? "#FFFBC4" :
 			       x == "97" ? "#FFFECB" :
 			       x == "98" ? "#FFFDC8" :
 			       x == "99" ? "#FFFECA" :
@@ -196,12 +248,12 @@
 			       x == "109" ? "#FFFFCC" :
 			       x == "110" ? "#FFFFCC" :
 			       x == "111" ? "#FFFECA" :
-			       x == "112" ? "#FEE897" :
+			       x == "112" ? "#FEE998" :
 			       x == "113" ? "#FFFBC3" :
 			       x == "114" ? "#FFFFCC" :
 			       x == "115" ? "#FFFCC6" :
 			       x == "116" ? "#FFFFCC" :
-			       x == "117" ? "#FFFBC3" :
+			       x == "117" ? "#FFFBC2" :
 			       x == "118" ? "#FFFDC8" :
 			       x == "119" ? "#FFFDC8" :
 			       x == "120" ? "#E6E6E6" :
@@ -209,7 +261,7 @@
 			       x == "122" ? "#FFFFCC" :
 			       x == "123" ? "#FFFBC2" :
 			       x == "124" ? "#FFFDC7" :
-			       x == "125" ? "#FEE999" :
+			       x == "125" ? "#FEE998" :
 			       x == "126" ? "#FFFEC9" :
 			       x == "127" ? "#FFF5B5" :
 			       x == "128" ? "#FFFDC9" :
@@ -219,9 +271,9 @@
 			       x == "132" ? "#FFFECB" :
 			       x == "133" ? "#FFFDC8" :
 			       x == "134" ? "#FFFFCC" :
-			       x == "135" ? "#FFFAC1" :
+			       x == "135" ? "#FFFAC0" :
 			       x == "136" ? "#FFFECA" :
-			       x == "137" ? "#FFF6B7" :
+			       x == "137" ? "#FFF7B8" :
 			       x == "138" ? "#FFFECB" :
 			       x == "139" ? "#FFFECA" :
 			       x == "140" ? "#FFFFCC" :
@@ -232,7 +284,7 @@
 			       x == "145" ? "#FFFBC4" :
 			       x == "146" ? "#F74427" :
 			       x == "147" ? "#FFFDC8" :
-			       x == "148" ? "#FFFECA" :
+			       x == "148" ? "#FFFEC9" :
 			       x == "149" ? "#FFFECA" :
 			       x == "150" ? "#FFF2AC" :
 			       x == "151" ? "#FFFEC9" :
@@ -248,23 +300,23 @@
 			       x == "161" ? "#FFFECB" :
 			       x == "162" ? "#FFFBC4" :
 			       x == "163" ? "#FFFFCC" :
-			       x == "164" ? "#FED16D" :
+			       x == "164" ? "#FED471" :
 			       x == "165" ? "#E6E6E6" :
 			       x == "166" ? "#FFFFCC" :
 			       x == "167" ? "#800026" :
-			       x == "168" ? "#FFFCC4" :
-			       x == "169" ? "#FFEFA4" :
+			       x == "168" ? "#FFFBC4" :
+			       x == "169" ? "#FFEFA5" :
 			       x == "170" ? "#FFFCC7" :
 			       x == "171" ? "#FFFECB" :
 			       x == "172" ? "#FFFDC7" :
 			       x == "173" ? "#33D3FF" :
 			       x == "174" ? "#FFFFCC" :
-			       x == "175" ? "#FFF6B6" :
+			       x == "175" ? "#FFF5B5" :
 			       x == "176" ? "#33D3FF" :
 			       x == "177" ? "#FFFECB" :
 			       x == "178" ? "#FFFCC4" :
 			       x == "179" ? "#FFFECB" :
-			       x == "180" ? "#FFF8BB" :
+			       x == "180" ? "#FFF7BA" :
 			       x == "181" ? "#FEEC9F" :
 			       x == "182" ? "#FFFDC9" :
 			       x == "183" ? "#FFFECA" :
@@ -274,7 +326,7 @@
 			       x == "187" ? "#FEEC9F" :
 			       x == "188" ? "#FFF6B6" :
 			       x == "189" ? "#FFF5B4" :
-			       x == "190" ? "#FFF5B5" :
+			       x == "190" ? "#FFF5B4" :
 			       "";
 		}
 					
