@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>global_Migration_prediction</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="leafletR">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -27,6 +26,59 @@
 		.evenrowcol{
 			background-color: #f6f6f6;
 		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
 	</style>
 </head>
 <body>
@@ -107,7 +159,7 @@
 			       x == "20" ? "#FFFFCC" :
 			       x == "21" ? "#FFFFCC" :
 			       x == "22" ? "#FEDB7B" :
-			       x == "23" ? "#FFFBC2" :
+			       x == "23" ? "#FFFBC3" :
 			       x == "24" ? "#FFFDC7" :
 			       x == "25" ? "#FFFECA" :
 			       x == "26" ? "#800026" :
@@ -230,7 +282,7 @@
 			       x == "143" ? "#FFFFCC" :
 			       x == "144" ? "#FFFFCC" :
 			       x == "145" ? "#FEE28A" :
-			       x == "146" ? "#FDA145" :
+			       x == "146" ? "#FDA345" :
 			       x == "147" ? "#FFF8BC" :
 			       x == "148" ? "#FFFFCC" :
 			       x == "149" ? "#FFFFCC" :
@@ -251,7 +303,7 @@
 			       x == "164" ? "#FFFECA" :
 			       x == "165" ? "#E6E6E6" :
 			       x == "166" ? "#FFFFCC" :
-			       x == "167" ? "#FEEC9F" :
+			       x == "167" ? "#FFEDA0" :
 			       x == "168" ? "#FFFFCC" :
 			       x == "169" ? "#FEE794" :
 			       x == "170" ? "#FFFCC6" :

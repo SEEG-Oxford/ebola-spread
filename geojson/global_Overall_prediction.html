@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>global_Overall_prediction</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="leafletR">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -27,6 +26,59 @@
 		.evenrowcol{
 			background-color: #f6f6f6;
 		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
 	</style>
 </head>
 <body>
@@ -95,11 +147,11 @@
 			       x == "8" ? "#FFFECB" :
 			       x == "9" ? "#FFFFCC" :
 			       x == "10" ? "#FFFECA" :
-			       x == "11" ? "#FFFECA" :
+			       x == "11" ? "#FFFEC9" :
 			       x == "12" ? "#FFFECB" :
-			       x == "13" ? "#FED572" :
+			       x == "13" ? "#FED471" :
 			       x == "14" ? "#FFFFCC" :
-			       x == "15" ? "#FFF0A7" :
+			       x == "15" ? "#FFEFA7" :
 			       x == "16" ? "#FFF6B7" :
 			       x == "17" ? "#FFFDC7" :
 			       x == "18" ? "#FFFBC3" :
@@ -114,12 +166,12 @@
 			       x == "27" ? "#FFF9BF" :
 			       x == "28" ? "#FFFFCC" :
 			       x == "29" ? "#FFF0A8" :
-			       x == "30" ? "#FFFAC0" :
+			       x == "30" ? "#FFF9BF" :
 			       x == "31" ? "#FFFECA" :
 			       x == "32" ? "#FFFDC9" :
 			       x == "33" ? "#FFFECB" :
-			       x == "34" ? "#FFFDC7" :
-			       x == "35" ? "#FEBF5A" :
+			       x == "34" ? "#FFFCC7" :
+			       x == "35" ? "#FEBE58" :
 			       x == "36" ? "#FFFFCC" :
 			       x == "37" ? "#FFFFCC" :
 			       x == "38" ? "#FFFECB" :
@@ -133,7 +185,7 @@
 			       x == "46" ? "#FFFCC6" :
 			       x == "47" ? "#FFFDC8" :
 			       x == "48" ? "#FFFFCC" :
-			       x == "49" ? "#A40026" :
+			       x == "49" ? "#A30026" :
 			       x == "50" ? "#FFFFCC" :
 			       x == "51" ? "#FFFECA" :
 			       x == "52" ? "#FFFECA" :
@@ -144,7 +196,7 @@
 			       x == "57" ? "#FFFDC8" :
 			       x == "58" ? "#FFFFCC" :
 			       x == "59" ? "#FFFECB" :
-			       x == "60" ? "#FEEB9D" :
+			       x == "60" ? "#FEEB9C" :
 			       x == "61" ? "#FFFAC0" :
 			       x == "62" ? "#FFFECB" :
 			       x == "63" ? "#FFFFCC" :
@@ -165,21 +217,21 @@
 			       x == "78" ? "#FFFECB" :
 			       x == "79" ? "#FFF5B4" :
 			       x == "80" ? "#FFFDC9" :
-			       x == "81" ? "#FFEDA1" :
+			       x == "81" ? "#FFEDA0" :
 			       x == "82" ? "#FDA446" :
 			       x == "83" ? "#FFF3AF" :
 			       x == "84" ? "#FFFECB" :
 			       x == "85" ? "#FFFECA" :
-			       x == "86" ? "#FC7134" :
+			       x == "86" ? "#FC7033" :
 			       x == "87" ? "#FFFDC8" :
-			       x == "88" ? "#FEE896" :
+			       x == "88" ? "#FEE895" :
 			       x == "89" ? "#FFFFCC" :
 			       x == "90" ? "#FFFCC6" :
 			       x == "91" ? "#FFFDC7" :
 			       x == "92" ? "#FFFDC9" :
 			       x == "93" ? "#FFFDC9" :
 			       x == "94" ? "#FFFFCC" :
-			       x == "95" ? "#FFF9BE" :
+			       x == "95" ? "#FFF9BD" :
 			       x == "96" ? "#FFFDC8" :
 			       x == "97" ? "#FFFFCC" :
 			       x == "98" ? "#FFFECA" :
@@ -225,7 +277,7 @@
 			       x == "138" ? "#FFFECB" :
 			       x == "139" ? "#FFFECB" :
 			       x == "140" ? "#FFFFCC" :
-			       x == "141" ? "#FFEEA2" :
+			       x == "141" ? "#FFEDA2" :
 			       x == "142" ? "#FFFFCC" :
 			       x == "143" ? "#FFFFCC" :
 			       x == "144" ? "#FFFFCC" :
@@ -234,7 +286,7 @@
 			       x == "147" ? "#FFFDC9" :
 			       x == "148" ? "#FFFECB" :
 			       x == "149" ? "#FFFECB" :
-			       x == "150" ? "#EC2C21" :
+			       x == "150" ? "#EC2D21" :
 			       x == "151" ? "#FFFECA" :
 			       x == "152" ? "#FFFBC2" :
 			       x == "153" ? "#FFF8BC" :
@@ -251,7 +303,7 @@
 			       x == "164" ? "#FD8D3C" :
 			       x == "165" ? "#E6E6E6" :
 			       x == "166" ? "#FFFFCC" :
-			       x == "167" ? "#FC6631" :
+			       x == "167" ? "#FC6330" :
 			       x == "168" ? "#FFFDC8" :
 			       x == "169" ? "#FFF5B5" :
 			       x == "170" ? "#FFFDC9" :
