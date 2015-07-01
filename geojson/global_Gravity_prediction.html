@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>global_Gravity_prediction</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="leafletR">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -27,6 +26,59 @@
 		.evenrowcol{
 			background-color: #f6f6f6;
 		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
 	</style>
 </head>
 <body>
@@ -100,7 +152,7 @@
 			       x == "13" ? "#FC7836" :
 			       x == "14" ? "#FFFFCC" :
 			       x == "15" ? "#FFF9BE" :
-			       x == "16" ? "#FFEDA1" :
+			       x == "16" ? "#FFEDA2" :
 			       x == "17" ? "#FFFBC2" :
 			       x == "18" ? "#FFF8BB" :
 			       x == "19" ? "#FFFDC8" :
@@ -119,7 +171,7 @@
 			       x == "32" ? "#FFFDC7" :
 			       x == "33" ? "#FFFECB" :
 			       x == "34" ? "#FFFAC2" :
-			       x == "35" ? "#EE3122" :
+			       x == "35" ? "#EE3222" :
 			       x == "36" ? "#FFFFCC" :
 			       x == "37" ? "#FFFFCC" :
 			       x == "38" ? "#FFFECA" :
@@ -133,7 +185,7 @@
 			       x == "46" ? "#FFF9BF" :
 			       x == "47" ? "#FFFCC4" :
 			       x == "48" ? "#FFFFCC" :
-			       x == "49" ? "#FC8539" :
+			       x == "49" ? "#FC8439" :
 			       x == "50" ? "#FFFECB" :
 			       x == "51" ? "#FFFDC8" :
 			       x == "52" ? "#FFFEC9" :
@@ -172,7 +224,7 @@
 			       x == "85" ? "#FFFECA" :
 			       x == "86" ? "#FDB04B" :
 			       x == "87" ? "#FFFBC4" :
-			       x == "88" ? "#FEC35E" :
+			       x == "88" ? "#FEC35F" :
 			       x == "89" ? "#FFFFCC" :
 			       x == "90" ? "#FFFAC0" :
 			       x == "91" ? "#FFFAC2" :
