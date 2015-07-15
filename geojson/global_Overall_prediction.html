@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>global_Overall_prediction</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="leafletR">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -27,6 +26,59 @@
 		.evenrowcol{
 			background-color: #f6f6f6;
 		}
+		.legend {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+		}
+		.legend table, .legend td {
+			border: none;
+		}
+		.value {
+			border: none;
+			padding: 0px 0px 0px 8px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.circle {
+			border: none;
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.shape {
+			padding: 0px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.ln {
+			stroke: #0033ff;
+			stroke-width: 5;
+			stroke-opacity: 0.5;
+			stroke-linecap: round;
+		}
+		.plgn {
+			fill: #0033ff;
+			fill-opacity: 0.5;
+			stroke: #0033ff;
+			stroke-width: 4;
+			stroke-opacity: 0.5;
+			stroke-linejoin: round;
+		}
+		.legend i {
+			opacity: 0.5;
+		}				
 	</style>
 </head>
 <body>
@@ -89,70 +141,70 @@
 			       x == "2" ? "#FFFFCC" :
 			       x == "3" ? "#FFFECA" :
 			       x == "4" ? "#FFFECA" :
-			       x == "5" ? "#FFFCC7" :
+			       x == "5" ? "#FFFDC7" :
 			       x == "6" ? "#FFFFCC" :
-			       x == "7" ? "#FFFAC2" :
+			       x == "7" ? "#FFFBC2" :
 			       x == "8" ? "#FFFECB" :
 			       x == "9" ? "#FFFFCC" :
 			       x == "10" ? "#FFFECA" :
 			       x == "11" ? "#FFFECA" :
 			       x == "12" ? "#FFFECB" :
-			       x == "13" ? "#FED976" :
+			       x == "13" ? "#FEDC7C" :
 			       x == "14" ? "#FFFFCC" :
-			       x == "15" ? "#FFF1AB" :
-			       x == "16" ? "#FFF7B8" :
-			       x == "17" ? "#FFFDC7" :
-			       x == "18" ? "#FFFBC4" :
+			       x == "15" ? "#FFF5B3" :
+			       x == "16" ? "#FFF7BA" :
+			       x == "17" ? "#FFFDC8" :
+			       x == "18" ? "#FFFCC4" :
 			       x == "19" ? "#FFFECA" :
 			       x == "20" ? "#FFFECB" :
 			       x == "21" ? "#FFFFCC" :
-			       x == "22" ? "#FFFBC2" :
-			       x == "23" ? "#DE161D" :
+			       x == "22" ? "#FFFBC3" :
+			       x == "23" ? "#D9131E" :
 			       x == "24" ? "#FFFECA" :
-			       x == "25" ? "#FFFDC9" :
-			       x == "26" ? "#FEEA9A" :
-			       x == "27" ? "#FFFAC0" :
+			       x == "25" ? "#FFFEC9" :
+			       x == "26" ? "#FFEDA1" :
+			       x == "27" ? "#FFFAC1" :
 			       x == "28" ? "#FFFFCC" :
-			       x == "29" ? "#FFF0A9" :
-			       x == "30" ? "#FFFAC0" :
+			       x == "29" ? "#FFF3AF" :
+			       x == "30" ? "#FFFAC1" :
 			       x == "31" ? "#FFFECA" :
-			       x == "32" ? "#FFFDC9" :
+			       x == "32" ? "#FFFEC9" :
 			       x == "33" ? "#FFFECB" :
 			       x == "34" ? "#FFFDC7" :
-			       x == "35" ? "#FEC35F" :
+			       x == "35" ? "#FECB67" :
 			       x == "36" ? "#FFFFCC" :
 			       x == "37" ? "#FFFFCC" :
 			       x == "38" ? "#FFFECB" :
-			       x == "39" ? "#FFFBC4" :
+			       x == "39" ? "#FFFCC4" :
 			       x == "40" ? "#FFFFCC" :
 			       x == "41" ? "#FFFECB" :
-			       x == "42" ? "#FFFDC8" :
+			       x == "42" ? "#FFFDC9" :
 			       x == "43" ? "#FFFECB" :
 			       x == "44" ? "#FFFFCC" :
-			       x == "45" ? "#FFF6B6" :
+			       x == "45" ? "#FFF6B8" :
 			       x == "46" ? "#FFFCC6" :
-			       x == "47" ? "#FFFDC8" :
+			       x == "47" ? "#FFFDC9" :
 			       x == "48" ? "#FFFFCC" :
-			       x == "49" ? "#A50026" :
+			       x == "49" ? "#A70026" :
 			       x == "50" ? "#FFFFCC" :
 			       x == "51" ? "#FFFECA" :
 			       x == "52" ? "#FFFECA" :
-			       x == "53" ? "#FFFCC6" :
+			       x == "53" ? "#FFFDC7" :
 			       x == "54" ? "#FFFECA" :
 			       x == "55" ? "#FFFECA" :
 			       x == "56" ? "#FFFFCC" :
 			       x == "57" ? "#FFFDC8" :
 			       x == "58" ? "#FFFFCC" :
 			       x == "59" ? "#FFFECB" :
-			       x == "60" ? "#FFEDA1" :
+			       x == "60" ? "#FFF1AA" :
 			       x == "61" ? "#FFFAC1" :
 			       x == "62" ? "#FFFECB" :
 			       x == "63" ? "#FFFFCC" :
 			       x == "64" ? "#FFFECA" :
 			       x == "65" ? "#FFFECA" :
-			       x == "66" ? "#FFFCC5" :
+			       x == "66" ? "#FFFCC6" :
 			       x == "67" ? "#FFFECB" :
-			       x == "68" ? "#FFFECB" :
+			       x == "68" ? "#FFFFCC" :
 			       x == "69" ? "#FFFFCC" :
 			       x == "70" ? "#FFFECB" :
 			       x == "71" ? "#FFFDC9" :
@@ -163,24 +215,24 @@
 			       x == "76" ? "#FFFECA" :
 			       x == "77" ? "#FFFEC9" :
 			       x == "78" ? "#FFFECB" :
-			       x == "79" ? "#FFF5B5" :
-			       x == "80" ? "#FFFDC9" :
-			       x == "81" ? "#FFEFA5" :
-			       x == "82" ? "#FDA546" :
-			       x == "83" ? "#FFF3B0" :
+			       x == "79" ? "#FFF6B7" :
+			       x == "80" ? "#FFFEC9" :
+			       x == "81" ? "#FFF2AE" :
+			       x == "82" ? "#FDA647" :
+			       x == "83" ? "#FFF4B3" :
 			       x == "84" ? "#FFFECB" :
 			       x == "85" ? "#FFFECA" :
-			       x == "86" ? "#FC7535" :
+			       x == "86" ? "#FC7B37" :
 			       x == "87" ? "#FFFDC8" :
-			       x == "88" ? "#FEE998" :
+			       x == "88" ? "#FEEB9B" :
 			       x == "89" ? "#FFFFCC" :
-			       x == "90" ? "#FFFCC6" :
+			       x == "90" ? "#FFFCC7" :
 			       x == "91" ? "#FFFDC7" :
 			       x == "92" ? "#FFFDC9" :
-			       x == "93" ? "#FFFDC9" :
+			       x == "93" ? "#FFFEC9" :
 			       x == "94" ? "#FFFFCC" :
-			       x == "95" ? "#FFF9BE" :
-			       x == "96" ? "#FFFDC8" :
+			       x == "95" ? "#FFF9BF" :
+			       x == "96" ? "#FFFDC9" :
 			       x == "97" ? "#FFFFCC" :
 			       x == "98" ? "#FFFECA" :
 			       x == "99" ? "#FFFECB" :
@@ -191,90 +243,90 @@
 			       x == "104" ? "#FFFECA" :
 			       x == "105" ? "#FFFFCC" :
 			       x == "106" ? "#FFFFCC" :
-			       x == "107" ? "#FFFCC6" :
+			       x == "107" ? "#FFFDC7" :
 			       x == "108" ? "#FFFCC6" :
 			       x == "109" ? "#FFFFCC" :
 			       x == "110" ? "#FFFFCC" :
 			       x == "111" ? "#FFFECB" :
-			       x == "112" ? "#FFF5B4" :
+			       x == "112" ? "#FFF6B6" :
 			       x == "113" ? "#FFFDC8" :
 			       x == "114" ? "#FFFFCC" :
-			       x == "115" ? "#FFFDC9" :
+			       x == "115" ? "#FFFEC9" :
 			       x == "116" ? "#FFFFCC" :
-			       x == "117" ? "#FFFDC7" :
+			       x == "117" ? "#FFFDC8" :
 			       x == "118" ? "#FFFECA" :
 			       x == "119" ? "#FFFECA" :
 			       x == "120" ? "#E6E6E6" :
 			       x == "121" ? "#FFFFCC" :
 			       x == "122" ? "#FFFFCC" :
-			       x == "123" ? "#FFFDC7" :
-			       x == "124" ? "#FFFEC9" :
-			       x == "125" ? "#FFF5B4" :
-			       x == "126" ? "#FFFECA" :
-			       x == "127" ? "#FFFAC1" :
+			       x == "123" ? "#FFFDC8" :
+			       x == "124" ? "#FFFECA" :
+			       x == "125" ? "#FFF6B6" :
+			       x == "126" ? "#FFFECB" :
+			       x == "127" ? "#FFFBC2" :
 			       x == "128" ? "#FFFECA" :
-			       x == "129" ? "#FFFDC8" :
+			       x == "129" ? "#FFFDC9" :
 			       x == "130" ? "#FFFECB" :
-			       x == "131" ? "#FFFBC4" :
+			       x == "131" ? "#FFFCC4" :
 			       x == "132" ? "#FFFFCC" :
 			       x == "133" ? "#FFFECA" :
 			       x == "134" ? "#FFFFCC" :
-			       x == "135" ? "#FFFCC7" :
+			       x == "135" ? "#FFFDC7" :
 			       x == "136" ? "#FFFECB" :
-			       x == "137" ? "#FDA847" :
-			       x == "138" ? "#FFFECB" :
+			       x == "137" ? "#FDA948" :
+			       x == "138" ? "#FFFFCC" :
 			       x == "139" ? "#FFFECB" :
 			       x == "140" ? "#FFFFCC" :
-			       x == "141" ? "#FFEEA3" :
+			       x == "141" ? "#FFF1AA" :
 			       x == "142" ? "#FFFFCC" :
 			       x == "143" ? "#FFFFCC" :
 			       x == "144" ? "#FFFFCC" :
-			       x == "145" ? "#FFFBC3" :
+			       x == "145" ? "#FFFCC5" :
 			       x == "146" ? "#800026" :
-			       x == "147" ? "#FFFDC9" :
+			       x == "147" ? "#FFFEC9" :
 			       x == "148" ? "#FFFECB" :
 			       x == "149" ? "#FFFECB" :
-			       x == "150" ? "#EA281F" :
+			       x == "150" ? "#E6201D" :
 			       x == "151" ? "#FFFECB" :
-			       x == "152" ? "#FFFBC3" :
-			       x == "153" ? "#FFF9BD" :
+			       x == "152" ? "#FFFBC4" :
+			       x == "153" ? "#FFF9BE" :
 			       x == "154" ? "#FFFEC9" :
-			       x == "155" ? "#FFF9BD" :
+			       x == "155" ? "#FFF9BE" :
 			       x == "156" ? "#FFFECB" :
 			       x == "157" ? "#FFFFCC" :
-			       x == "158" ? "#FFFDC7" :
+			       x == "158" ? "#FFFDC8" :
 			       x == "159" ? "#FFFECA" :
 			       x == "160" ? "#FFFECA" :
 			       x == "161" ? "#FFFECB" :
 			       x == "162" ? "#FFFDC8" :
 			       x == "163" ? "#FFFFCC" :
-			       x == "164" ? "#FD8F3C" :
+			       x == "164" ? "#FD923E" :
 			       x == "165" ? "#E6E6E6" :
 			       x == "166" ? "#FFFFCC" :
-			       x == "167" ? "#FC7735" :
-			       x == "168" ? "#FFFDC8" :
-			       x == "169" ? "#FFF6B6" :
+			       x == "167" ? "#FD923E" :
+			       x == "168" ? "#FFFDC9" :
+			       x == "169" ? "#FFF7B8" :
 			       x == "170" ? "#FFFDC9" :
 			       x == "171" ? "#FFFECB" :
 			       x == "172" ? "#FFFEC9" :
 			       x == "173" ? "#33D3FF" :
 			       x == "174" ? "#FFFFCC" :
-			       x == "175" ? "#FFFAC1" :
+			       x == "175" ? "#FFFBC2" :
 			       x == "176" ? "#33D3FF" :
 			       x == "177" ? "#FFFFCC" :
-			       x == "178" ? "#FFFDC8" :
+			       x == "178" ? "#FFFDC9" :
 			       x == "179" ? "#FFFFCC" :
-			       x == "180" ? "#FFFBC3" :
-			       x == "181" ? "#FFF3AE" :
+			       x == "180" ? "#FFFBC4" :
+			       x == "181" ? "#FFF4B2" :
 			       x == "182" ? "#FFFECA" :
 			       x == "183" ? "#FFFECB" :
 			       x == "184" ? "#FFFECB" :
 			       x == "185" ? "#FFFECB" :
 			       x == "186" ? "#FFFDC8" :
-			       x == "187" ? "#FFF6B7" :
-			       x == "188" ? "#FFFAC2" :
+			       x == "187" ? "#FFF7B9" :
+			       x == "188" ? "#FFFBC2" :
 			       x == "189" ? "#FFFAC1" :
-			       x == "190" ? "#FFFAC0" :
+			       x == "190" ? "#FFFAC1" :
 			       "";
 		}
 					
