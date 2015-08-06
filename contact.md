@@ -5,7 +5,7 @@ title: Contact
 
 ## Direct contacts
 
-**Nick Golding** <nick.golding@zoo.ox.ac.uk>
+**Nick Golding** <mailto:nick.golding.research@gmail.com>
 
 **Moritz Kraemer** <mailto:moritz.kraemer@zoo.ox.ac.uk>
 
