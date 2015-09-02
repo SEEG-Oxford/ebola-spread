@@ -11,7 +11,7 @@ The aim of this analysis is to produce a regional, district level metric of the 
 
 [Risk-doc]: http://seeg-oxford.github.io/ebola-spread/local-risk-doc
 
-### Latest data as of  2015-09-02
+### Latest data as of  2015-09-03
 
 [Click here to open this risk map as a zoomable graphic][GeoJsonMap]
 
