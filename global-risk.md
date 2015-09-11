@@ -12,9 +12,9 @@ The aim of this analysis is to produce a global, national-level metric of the re
 [Risk-doc]: http://seeg-oxford.github.io/ebola-spread/risk-doc
 
 <<<<<<< HEAD
-### Latest data as of  2015-09-11
+### Latest data as of  2015-09-12
 =======
-### Latest data as of  2015-09-11
+### Latest data as of  2015-09-12
 >>>>>>> c769d0c6e0d7337f5eb43c7824ea800282b18916
 
 <a href="images/global_Overall_prediction_large.png"><img src="images/global_Overall_prediction.png" /></a>
