@@ -11,7 +11,7 @@ The aim of this analysis is to produce a global, national-level metric of the re
 
 [Risk-doc]: http://seeg-oxford.github.io/ebola-spread/risk-doc
 
-### Latest data as of  2016-03-04
+### Latest data as of  2016-03-05
 
 <a href="images/global_Overall_prediction_large.png"><img src="images/global_Overall_prediction.png" /></a>
 Predicted relative risk of importation of EVD cases from countries with reported cases in the last <b>21</b> days using the overall model. Dark red indicates higher risk of importation. Note that this does not represent a prediction of the number of new cases being reported in the future. Core countries are coloured blue to prevent skew.
